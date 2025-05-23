@@ -9,7 +9,7 @@ import Validator from '../../utils/Validator';
 import FieldStatus from '../../utils/FieldStatus';
 
 
-const supaBase = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_ANON_KEY);
+// const supaBase = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_ANON_KEY);
 
 function ContactMeScreen() {
     const {isMobile} = useContext(DeviceContext);
@@ -70,11 +70,11 @@ function InquiryComponent() {
         setEmailFieldStatus(emailFieldTempStatus);
     }
 
-    async function getData() {
+    // async function getData() {
         
-        const { data } = await supaBase.from("message").select();
-        console.log(data);
-      }
+    //     const { data } = await supaBase.from("message").select();
+    //     console.log(data);
+    //   }
 
     async function postData(url = "http://localhost:8080/api/auth/login", data = {
         "email" : "perrelbrown12@yahooo.com",
