@@ -64,8 +64,8 @@ const NavBar = () => {
                 className="bg-white">
                   <DropdownItem className={`${isBold('/')}`} onClick={() => {navigate('/')}}>Home</DropdownItem>
                   <DropdownItem className={`${isBold('/resume')}`}  onClick={() => navigate('/resume')}>Resume</DropdownItem>
-                  <DropdownItem className={`${isBold('/certificates')}`} onClick={() => navigate('/certificates')}>Portofolio</DropdownItem>
-                  <DropdownItem className={`${isBold('/portofolio')}`} onClick={() => navigate('/portofolio')}>Certificates</DropdownItem>
+                  <DropdownItem className={`${isBold('/certificates')}`} onClick={() => navigate('/certificates')}>Certificates</DropdownItem>
+                  <DropdownItem className={`${isBold('/portofolio')}`} onClick={() => navigate('/portofolio')}>Portofolio</DropdownItem>
                   <DropdownItem className={`${isBold('/contact-me')}`} onClick={() => navigate('/contact-me')}>Contact Me</DropdownItem>
               </Dropdown>
             : null}

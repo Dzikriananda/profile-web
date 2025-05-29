@@ -1,76 +1,107 @@
+import Portofolio1 from '../../assets/images/portofolio-1.png';
+import Portofolio2 from '../../assets/images/portofolio-2.png';
+import Portofolio3 from '../../assets/images/portofolio-3.png';
+
 
 
 function PortofolioScreen(){
     return(
         <div>
-            <Dreamybull/>
+          <div className='flex max-w-7xl  justify-center flex-wrap mx-5 sm:mx-auto'>
+              <PortofolioCard image={Portofolio1} name="Calorie Guru Mobile App"/>
+              <PortofolioCard image={Portofolio2} name="Bird Guard Mobile App"/>
+              <PortofolioCard image={Portofolio3} name="Playstore App Sentiment Site (Backend)"/>
+              <PortofolioCard image={Portofolio3} name="Playstore App Sentiment Site (Backend)"/>
+              {/* <PortofolioCard image={Portofolio1}/>
+              <PortofolioCard image={Portofolio1}/>
+              <PortofolioCard image={Portofolio1}/>
+              <PortofolioCard image={Portofolio1}/> */}
+
+          </div>
         </div>
     );
 }
 
-const ExperienceCard = (props) => {
+const PortofolioCard = (props) => {
     return (
-      <div className="w-full max-w-[800px] mx-auto px-4 py-8 bg-gray-100 text-center rounded-lg shadow">
-      <p className="text-gray-800 break-words">
-        This box is responsive and maxes out at aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-      </p>
-    </div>
-    );
-  };
+    <div>
+      
+        <div className="sm:mx-4 my-4 relative sm:w-96 w-[320px] max-h-96  overflow-hidden rounded-lg group shadow-xl">
+          {/* Image */} 
+          <img
+            src={props.image}
+            alt="Zoomed on hover"
+            className="w-full h-96 object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
+          />
 
-  function Dreamybull() {
-    const openPrankWindow = () => {
-        const prankWin = window.open(
-          "",
-          "prankWindow",
-          "width=500,height=500,left=200,top=200"
-        );
-    
-        if (!prankWin) {
-          alert("Popup blocked! Please allow popups for this site.");
-          return;
-        }
-    
-        prankWin.document.write("<img src='https://i1.sndcdn.com/artworks-F35OU0eOpcjHaeiP-jEMs5w-t500x500.jpg'/>");
-    
-        let x = 200;
-        let y = 200;
-        let dx = 25; // moderate speed
-        let dy = 14;
-    
-        const interval = setInterval(() => {
-          try {
-            x += dx;
-            y += dy;
-    
-            if (x <= 0 || x >= screen.width - 300) dx = -dx;
-            if (y <= 0 || y >= screen.height - 200) dy = -dy;
-    
-            prankWin.moveTo(x, y);
-          } catch (err) {
-            clearInterval(interval); // stop if window is closed or blocked
-            console.log("Prank window closed or blocked.");
-          }
-        }, 20); // move every 50ms (20 fps approx)
-      };
-    
-      return (
-        <div style={{ padding: "40px", textAlign: "center" }}>
-          <h1>React Prank App</h1>
-          <button
-            onClick={openPrankWindow}
-            style={{
-              padding: "12px 24px",
-              fontSize: "18px",
-              cursor: "pointer",
-              borderRadius: "8px",
-            }}
-          >
-            Launch Prank Window
-          </button>
+          {/* Text overlay */}
+          <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+            <p className="text-white text-lg font-semibold">{props.name}</p>
+          </div>
         </div>
-      );
-  }
+        <button type="button"  onClick={() => {}}  className=' bg-blue-400 w-auto px-7 h-8 rounded-md sm:ml-4  text-white'>Details</button>
+    </div>
+
+
+    );
+};
+
+
 
 
 export default PortofolioScreen;
+
+
+
+
+// import Portofolio1 from '../../assets/images/portofolio-1.png';
+// import Portofolio2 from '../../assets/images/portofolio-2.png';
+// import Portofolio3 from '../../assets/images/portofolio-3.png';
+
+
+
+// function PortofolioScreen(){
+//     return(
+//         <div>
+//           <div className='flex max-w-7xl flex-wrap mx-5 sm:mx-auto bg-black'>
+//               <PortofolioCard image={Portofolio1} name="Calorie Guru Mobile App"/>
+//               <PortofolioCard image={Portofolio2} name="Bird Guard Mobile App"/>
+//               <PortofolioCard image={Portofolio3} name="Playstore App Sentiment Site (Backend)"/>
+//               <PortofolioCard image={Portofolio3} name="Playstore App Sentiment Site (Backend)"/>
+//               {/* <PortofolioCard image={Portofolio1}/>
+//               <PortofolioCard image={Portofolio1}/>
+//               <PortofolioCard image={Portofolio1}/>
+//               <PortofolioCard image={Portofolio1}/> */}
+
+//           </div>
+//         </div>
+//     );
+// }
+
+// const PortofolioCard = (props) => {
+//     return (
+//     <div>
+//         <div className="sm:mx-4 my-4 relative sm:w-96 w-[320px] max-h-96  overflow-hidden rounded-lg group shadow-xl">
+//           {/* Image */} 
+//           <img
+//             src={props.image}
+//             alt="Zoomed on hover"
+//             className="w-full h-96 object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
+//           />
+
+//           {/* Text overlay */}
+//           <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+//             <p className="text-white text-lg font-semibold">{props.name}</p>
+//           </div>
+//         </div>
+//         <button type="button"  onClick={() => {}}  className=' bg-blue-400 w-auto px-7 h-8 rounded-md sm:ml-4  text-white'>Details</button>
+//     </div>
+
+
+//     );
+// };
+
+
+
+
+// export default PortofolioScreen;
