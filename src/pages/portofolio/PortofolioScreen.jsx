@@ -1,23 +1,27 @@
 import Portofolio1 from '../../assets/images/portofolio-1.png';
 import Portofolio2 from '../../assets/images/portofolio-2.png';
 import Portofolio3 from '../../assets/images/portofolio-3.png';
-
+import Portofolio4 from '../../assets/images/portofolio-4.png';
+import { useState,useEffect, useContext,Button } from 'react'
+import { DeviceContext } from '../../context/DeviceContext';
 
 
 function PortofolioScreen(){
+    const {isMobile} = useContext(DeviceContext);
+  
     return(
-        <div>
-          <div className='flex max-w-7xl  justify-center flex-wrap mx-5 sm:mx-auto'>
-              <PortofolioCard image={Portofolio1} name="Calorie Guru Mobile App"/>
-              <PortofolioCard image={Portofolio2} name="Bird Guard Mobile App"/>
-              <PortofolioCard image={Portofolio3} name="Playstore App Sentiment Site (Backend)"/>
-              <PortofolioCard image={Portofolio3} name="Playstore App Sentiment Site (Backend)"/>
-              {/* <PortofolioCard image={Portofolio1}/>
-              <PortofolioCard image={Portofolio1}/>
-              <PortofolioCard image={Portofolio1}/>
-              <PortofolioCard image={Portofolio1}/> */}
-
+        <div className='flex flex-col min-h-screen'>
+          <div className='flex max-w-7xl  justify-center flex-wrap mx-5 sm:mx-auto mt-4 flex-grow'>
+              <PortofolioCard image={Portofolio1} name="Calorie Guru Mobile App (Flutter)"/>
+              <PortofolioCard image={Portofolio2} name="Bird Guard Mobile App (Flutter)"/>
+              <PortofolioCard image={Portofolio3} name="Backend for Playstore App Sentiment Site ( Java Spring Boot )"/>
+              <PortofolioCard image={Portofolio4} name="Personal Website (Flutter Web)"/>
           </div>
+          <div className={`mt-16 min-h-[80px] bg-blue-100  w-full flex items-center justify-center`}>
+                <h3 className={`${isMobile ? 'text-center text-sm' : ''}`}>
+                © Copyright 2025. All Rights Reserved. Supported By DreamyBullXXX (Ambatukam)
+                </h3>
+            </div>
         </div>
     );
 }
@@ -25,8 +29,8 @@ function PortofolioScreen(){
 const PortofolioCard = (props) => {
     return (
     <div>
-      
-        <div className="sm:mx-4 my-4 relative sm:w-96 w-[320px] max-h-96  overflow-hidden rounded-lg group shadow-xl">
+        <h1 className="pt-3 sm:mx-4 text-xl font-semibold">{props.name}</h1>
+        <div className="sm:mx-4 my-4 relative sm:w-auto w-[320px] max-h-96  overflow-hidden rounded-lg group shadow-[0_0_20px_rgba(0,0,0,0.1)]">
           {/* Image */} 
           <img
             src={props.image}
