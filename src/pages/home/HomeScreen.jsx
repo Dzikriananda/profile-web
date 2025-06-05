@@ -70,7 +70,7 @@ function HomeScreen() {
               </h1>
               <TypingCharacter/>
               <p class="w-full max-w-xl text-justify text-lg"> 
-              Passionate and self-driven Fullstack application developer with a strong desire to contribute my skills to diverse projects. I thrive on collaboration, possess excellent teamwork abilities, and have a knack for integrating valuable input into my work. My background spans mobile, web, and backend development, and I am committed to staying abreast of the latest industry trends through continuous learning and skill enhancement. Meticulous and detail-oriented, I pride myself on delivering projects promptly and often exceeding timeline.
+              Passionate and self-driven Fullstack application developer with a strong desire to contribute my skills to diverse projects. My background spans mobile, web, and backend development, and I am committed to staying abreast of the latest industry trends through continuous learning and skill enhancement.
               </p>
             </div>
             <img src={profilePhoto} class='md:h-[500px] sm:h-[300px] rounded-full'></img>
@@ -87,7 +87,7 @@ function HomeScreen() {
               </h1>
               <TypingCharacter/>
               <p class="mx-8 text-justify text-sm"> 
-                Passionate and self-driven Fullstack application developer with a strong desire to contribute my skills to diverse projects. I thrive on collaboration, possess excellent teamwork abilities, and have a knack for integrating valuable input into my work. My background spans mobile, web, and backend development, and I am committed to staying abreast of the latest industry trends through continuous learning and skill enhancement. Meticulous and detail-oriented, I pride myself on delivering projects promptly and often exceeding timelines.
+              Passionate and self-driven Fullstack application developer with a strong desire to contribute my skills to diverse projects. My background spans mobile, web, and backend development, and I am committed to staying abreast of the latest industry trends through continuous learning and skill enhancement.
               </p>
         </div>
         <ServicesCard/>

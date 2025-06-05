@@ -14,8 +14,8 @@ function PortofolioScreen(){
           <div className='flex max-w-7xl  justify-center flex-wrap mx-5 sm:mx-auto mt-4 flex-grow'>
               <PortofolioCard image={Portofolio1} name="Calorie Guru Mobile App (Flutter)"/>
               <PortofolioCard image={Portofolio2} name="Bird Guard Mobile App (Flutter)"/>
-              <PortofolioCard image={Portofolio3} name="Backend for Playstore App Sentiment Site ( Java Spring Boot )"/>
-              <PortofolioCard image={Portofolio4} name="Personal Website (Flutter Web)"/>
+              <PortofolioCard image={Portofolio3} name="Backend for Playstore App Sentiment Site ( Java Spring Boot )" isWide={true}/>
+              <PortofolioCard image={Portofolio4} name="Personal Website (Flutter Web)" isWide={true}/>
           </div>
           <div className={`mt-16 min-h-[80px] bg-blue-100  w-full flex items-center justify-center`}>
                 <h3 className={`${isMobile ? 'text-center text-sm' : ''}`}>
@@ -30,12 +30,12 @@ const PortofolioCard = (props) => {
     return (
     <div>
         <h1 className="pt-3 sm:mx-4 text-xl font-semibold">{props.name}</h1>
-        <div className="sm:mx-4 my-4 relative sm:w-auto w-[320px] max-h-96  overflow-hidden rounded-lg group shadow-[0_0_20px_rgba(0,0,0,0.1)]">
+        <div className={`sm:mx-4 my-4 relative ${props.isWide ? "w-auto" : "w-[320px]"} max-h-96  overflow-hidden rounded-lg group shadow-[0_0_20px_rgba(0,0,0,0.1)]`}>
           {/* Image */} 
           <img
             src={props.image}
             alt="Zoomed on hover"
-            className="w-full h-96 object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
+            className={`${props.isWide ? "aspect-[16/9]" : "h-96"} w-full  object-cover transition-transform duration-300 ease-in-out group-hover:scale-110`}
           />
 
           {/* Text overlay */}
