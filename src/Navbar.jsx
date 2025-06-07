@@ -1,14 +1,15 @@
 // component/NavBar.js
-import { useState,useEffect,useRef } from 'react'
+import { useState,useEffect,useRef,useContext} from 'react'
 
 import { SocialIcon } from 'react-social-icons'
 import { AlignJustify } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { NavLink } from "react-router-dom";
 import { Dropdown, DropdownItem } from "flowbite-react";
+import { ScreenContext } from './context/ScreenContext.';
 
 const NavBar = () => {
-
+  const [showNavBar,setShowNavBar] = useContext(ScreenContext);
   const [checked, setChecked] = useState(false)
   const [width, setWidth] = useState(window.innerWidth);
   const navigate = useNavigate();
@@ -39,7 +40,8 @@ const NavBar = () => {
     }
   }
   return (
-    <div class="bg-blue-400 h-[80px] w-full flex items-center">
+    <div>
+      {showNavBar ? <div class="bg-blue-400 h-[80px] w-full flex items-center">
             <h1 className="text-3xl font-bold ml-5 text-white">
                 Dzikri
             </h1>
@@ -69,7 +71,8 @@ const NavBar = () => {
                   <DropdownItem className={`${isBold('/contact-me')}`} onClick={() => navigate('/contact-me')}>Contact Me</DropdownItem>
               </Dropdown>
             : null}
-          </div>
+          </div> : <div></div>}
+    </div>
    
   );
 };

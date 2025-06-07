@@ -4,6 +4,6 @@ export const  ResponsiveBox= (props) => {
       <p className="text-gray-800 break-words">
         This box is responsive and maxes out at aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
       </p>
-    </div>
+      </div>
     );
-  };
+};

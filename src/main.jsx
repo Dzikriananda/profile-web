@@ -9,10 +9,13 @@ import ContactMeScreen from './pages/contact-me/ContactMeScreen.jsx';
 import { DeviceContext } from './context/DeviceContext.jsx';
 import CertificatesScreen from './pages/certificates/CertificatesScreen.jsx';
 import PortofolioScreen from './pages/portofolio/PortofolioScreen.jsx';
+import { PortofolioDetailScreen } from './pages/portofolio-detail/PortofolioDetailScreen.jsx';
+import { ScreenContext } from './context/ScreenContext..jsx';
 
 
 const App = () => {
   const [width, setWidth] = useState(window.innerWidth);
+  const [showNavBar, setShowNavBar] = useState(true);
 
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth);
@@ -21,21 +24,24 @@ const App = () => {
   }, []);
 
   const isMobile = width <= 768;
-  console.log(isMobile + "nilai ismobile");
+
 
   return (
-    <DeviceContext.Provider value={{ isMobile }}>
-      <BrowserRouter basename='/'>
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<HomeScreen />} />
-          <Route path="/resume" element={<ResumeScreen />} />
-          <Route path="/contact-me" element={<ContactMeScreen />} />
-          <Route path="/portofolio" element={<PortofolioScreen/>} />
-          <Route path="/certificates" element={<CertificatesScreen/>} />
-        </Routes>
-      </BrowserRouter>
-    </DeviceContext.Provider>
+    <ScreenContext.Provider value={[showNavBar,setShowNavBar]}>
+      <DeviceContext.Provider value={{ isMobile }}>
+        <BrowserRouter basename='/'>
+          <NavBar />
+          <Routes>
+            <Route path="/" element={<HomeScreen />} />
+            <Route path="/resume" element={<ResumeScreen />} />
+            <Route path="/contact-me" element={<ContactMeScreen />} />
+            <Route path="/portofolio" element={<PortofolioScreen/>} />
+            <Route path="/certificates" element={<CertificatesScreen/>} />
+            <Route path="/portfolio-details" element={<PortofolioDetailScreen/>} />
+          </Routes>
+        </BrowserRouter>
+      </DeviceContext.Provider>
+    </ScreenContext.Provider>
   );
 };
 
