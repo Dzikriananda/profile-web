@@ -10,60 +10,57 @@ import { DeviceContext } from '../../context/DeviceContext';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import { useLocation } from "react-router";
 
 export function PortofolioDetailScreen() {
-  const [showNavBar, setShowNavBar] = useContext(ScreenContext);
   const {isMobile} = useContext(DeviceContext);
+  const {state} = useLocation();
+  const data = state.data;
+  
+
 
   useEffect(() => {
-    // setShowNavBar(false);
   }, []);
 
 
   return (
     <div className="">
-        {isMobile ? <MobileView/> : <DekstopView/>}  
+        {isMobile ? <MobileView data={data}/> : <DekstopView data={data}/>}  
         <BottomBar/>
     </div>
   );
 }
 
-function DekstopView() {
-    let apkUrl="https://drive.google.com/file/d/1FKilu2HHDswlS2cH5HQsZkLfPwrfmWjt/view";
-    let repoUrl = "https://github.com/Dzikriananda/CalorieGuru-MobileApp";
-    let desc=`Welcome to Calorie Guru - your go-to application for tracking and managing your daily calorie intake! Calorie Guru is designed to help users easily log their daily calorie consumption, providing a convenient way to monitor their diet and make informed decisions about their nutrition. This app simplifies the process of keeping track of calories consumed throughout the day.`;  
-
+function DekstopView(props) {
+  const data = props.data;   
     return (
         <div className="flex justify-center mt-8 flex-col px-[255px]">
             <div className="flex-row flex justify-center ">
-                <Carousel/>
+                <Carousel data={data.imgPath} slidesToShow={data.slideToScroll} slidesToScroll ={data.slideToScroll}/>
                 <div className="ml-6 w-96 px-6 py-8 bg-white rounded-lg shadow-xl self-start">
                     <p className="text-gray-800 font-bold text-xl  break-words text-start">
                     Portfolio Information
                     </p>
                     <div className="w-full h-[1px] my-4 bg-gray-400"/>
-                    <h1 className="text-start my-2"><span className="font-semibold">Name</span> : {"Calorie Guru Mobile App"}</h1>
-                    <h1 className="text-start my-2"><span className="font-semibold">Tech Stack</span> : {"Flutter, Firebase"}</h1>
-                    <h1 className="text-start my-2"><span className="font-semibold">Project Date</span> : {"August-December 2023"}</h1>
-                    <h1 className="text-start my-2"><span className="font-semibold">Role</span> : {"Fullstack Developer (Mobile and Backend)"}</h1>
-                    <h1 className="text-start my-2 break-words"><span className="font-semibold">APK File URL</span> : <a className="text-blue-500" href={apkUrl}>{apkUrl}</a></h1>
-                    <h1 className="text-start my-2 break-words "><span className="font-semibold">Repository URL</span> : <a className="text-blue-500" href={repoUrl}>{repoUrl}</a></h1>
+                    <h1 className="text-start my-2"><span className="font-semibold">Name</span> : {data.name}</h1>
+                    <h1 className="text-start my-2"><span className="font-semibold">Tech Stack</span> : {data.techStack}</h1>
+                    <h1 className="text-start my-2"><span className="font-semibold">Project Date</span> : {data.date}</h1>
+                    <h1 className="text-start my-2"><span className="font-semibold">Role</span> : {data.role}</h1>
+                    <h1 className="text-start my-2 break-words"><span className="font-semibold">APK File URL</span> : <a className="text-blue-500" href={data.apkUrl}>{data.apkUrl}</a></h1>
+                    <h1 className="text-start my-2 break-words "><span className="font-semibold">Repository URL</span> : <a className="text-blue-500" href={data.repoUrl}>{data.repoUrl}</a></h1>
                 </div>
             </div>
             <h1 className="mt-10 text-2xl font-bold">Description</h1>
-            <p className="text-justify">{desc}</p>
+            <p className="text-justify">{data.description}</p>
             <h1 className="mt-10 text-2xl font-bold">Features</h1>
-            <Features/>
-            <TechnologiesUsed/>
+            <Features data={data.features}/>
+            <TechnologiesUsed data={data.techUsed}/>
         </div>
     );
 }
 
-function MobileView() {
-    let apkUrl="https://drive.google.com/file/d/1FKilu2HHDswlS2cH5HQsZkLfPwrfmWjt/view";
-    let repoUrl = "https://github.com/Dzikriananda/CalorieGuru-MobileApp";
-    let desc=`Welcome to Calorie Guru - your go-to application for tracking and managing your daily calorie intake! Calorie Guru is designed to help users easily log their daily calorie consumption, providing a convenient way to monitor their diet and make informed decisions about their nutrition. This app simplifies the process of keeping track of calories consumed throughout the day.`;
-
+function MobileView(props) {
+  const data = props.data;   
     return (
         <div className="px-8">
             <div className="w-full px-6 py-8 bg-white rounded-lg shadow-xl self-start">
@@ -71,19 +68,20 @@ function MobileView() {
                     Portfolio Information
                     </p>
                     <div className="w-full h-[1px] my-4 bg-gray-400"/>
-                    <h1 className="text-start my-2"><span className="font-semibold">Name</span> : {"Calorie Guru Mobile App"}</h1>
-                    <h1 className="text-start my-2"><span className="font-semibold">Tech Stack</span> : {"Flutter, Firebase"}</h1>
-                    <h1 className="text-start my-2"><span className="font-semibold">Project Date</span> : {"August-December 2023"}</h1>
-                    <h1 className="text-start my-2"><span className="font-semibold">Role</span> : {"Fullstack Developer (Mobile and Backend)"}</h1>
-                    <h1 className="text-start my-2 break-words"><span className="font-semibold">APK File URL</span> : <a className="text-blue-500" href={apkUrl}>{apkUrl}</a></h1>
-                    <h1 className="text-start my-2 break-words "><span className="font-semibold">Repository URL</span> : <a className="text-blue-500" href={repoUrl}>{repoUrl}</a></h1>
+                    <h1 className="text-start my-2"><span className="font-semibold">Name</span> : {data.name}</h1>
+                    <h1 className="text-start my-2"><span className="font-semibold">Tech Stack</span> : {data.techStack}</h1>
+                    <h1 className="text-start my-2"><span className="font-semibold">Project Date</span> : {data.date}</h1>
+                    <h1 className="text-start my-2"><span className="font-semibold">Role</span> : {data.role}</h1>
+                    <h1 className="text-start my-2 break-words"><span className="font-semibold">APK File URL</span> : <a className="text-blue-500" href={data.apkUrl}>{data.apkUrl}</a></h1>
+                    <h1 className="text-start my-2 break-words "><span className="font-semibold">Repository URL</span> : <a className="text-blue-500" href={data.repoUrl}>{data.repoUrl}</a></h1>
             </div>
-            <Carousel/>
+            <Carousel data={data.imgPath} slidesToShow={1} slidesToScroll ={1}/>
+            {/* <Carousel data={data.imgPath} slidesToShow={data.slideToScroll} slidesToScroll ={data.slideToScroll}/> */}
             <h1 className="mt-10 text-2xl font-bold">Description</h1>
-            <p className="text-justify">{desc}</p>
+            <p className="text-justify">{data.description}</p>
             <h1 className="mt-10 text-2xl font-bold">Features</h1>
-            <Features/>
-            <TechnologiesUsed/>
+            <Features data={data.features}/>
+            <TechnologiesUsed data={data.techUsed}/>
             
         </div>
     );
@@ -100,28 +98,39 @@ function BottomBar() {
     );
 }
 
-function Carousel() {
+function Carousel(props) {
+  const data = props.data;
+  const slidesToScroll = props.slidesToScroll;
+  const slidesToShow = props.slidesToShow;
+
+
     var settings = {
         dots: true,
         infinite: false,
         speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
+        slidesToShow: slidesToShow,
+        slidesToScroll: slidesToScroll,
+        dotsClass: "custom-dots",
       };
       return (
-        <Slider {...settings} className="sm:w-[800px] sm:h-auto mt-8 sm:mt-0">
-              <img  src={Img1}></img>
-              <img  src={Img2}></img>
-              <img  src={Img3}></img>
-              <img  src={Img4}></img>
-              <img  src={Img5}></img>
-              <img  src={Img6}></img>
-        </Slider>
+        <div className="sm:w-[800px] h-auto mt-9 sm:mt-0">
+          <Slider {...settings}>
+            {data.map((imgPath, index) => (
+              <img
+                key={index}
+                src={imgPath}
+                alt={`Slide ${index}`}
+                className="px-2"
+              />
+            ))}
+          </Slider>
+        </div>
       );
 }
 
 
-const TechnologiesUsed = () => {
+const TechnologiesUsed = (props) => {
+  const technologiesUsed = props.data;
   return (
     <div className="mt-8">
       <h1 className="text-2xl font-bold mb-4">Technologies Used</h1>
@@ -139,90 +148,9 @@ const TechnologiesUsed = () => {
   );
 };
 
-const technologiesUsed = [
-    {
-      category: "Frontend",
-      items: [
-        "Flutter for the user interface.",
-        "MVVM Architecture with GET for Dependency Injection.",
-        "Provider for state management.",
-        "Http Package for API interactions.",
-      ],
-    },
-    {
-      category: "Backend",
-      items: [
-        "Firebase Authentication for user authentication.",
-        "Firestore for NoSQL database.",
-        "RESTful API architecture for other APIs.",
-      ],
-    },
-    
-  ];
 
-const featuresData = [
-    {
-      category: "Calorie Logging",
-      items: [
-        {
-          title: "Log Your Meals",
-          description:
-            "Easily input and track the food items and their respective calorie counts for each meal.",
-        },
-        {
-          title: "Search Calorie Information",
-          description:
-            "Utilize machine learning-based food recognition to search and log the calorie count of various food items and burned calories from many sports.",
-        },
-        {
-          title: "View Daily Intake",
-          description:
-            "Monitor your daily calorie intake through a user-friendly interface.",
-        },
-        {
-          title: "View History",
-          description: "Easily view past Calorie Log.",
-        },
-      ],
-    },
-    {
-      category: "Burning Activities",
-      items: [
-        {
-          title: "Track Physical Activities",
-          description:
-            "Log exercises and physical activities to calculate and track burned calories.",
-        },
-        {
-          title: "Customize Activity Intensity",
-          description:
-            "Adjust activity duration and intensity for accurate calorie expenditure calculation.",
-        },
-      ],
-    },
-    {
-      category: "User Profiles",
-      items: [
-        {
-          title: "Profile Modification",
-          description:
-            "Users can modify their profiles, including email and password changes.",
-        },
-        {
-          title: "Personalized Profiles",
-          description:
-            "Create and manage individual profiles to track calorie goals and progress.",
-        },
-        {
-          title: "Delete Account",
-          description:
-            "Delete an account if a user wishes not to use the app anymore.",
-        },
-      ],
-    },
-  ];
-
-const Features = () => {
+const Features = (props) => {
+  const featuresData = props.data;
   return (
     <div className="ml-11 mt-8">
       {featuresData.map((section, index) => (

@@ -6,6 +6,7 @@ import { useState,useEffect, useContext,Button } from 'react'
 import { DeviceContext } from '../../context/DeviceContext';
 import { useNavigate } from "react-router";
 import { ScreenContext } from "../../context/ScreenContext.";
+import { portfolioDetailData } from '../../utils/data';
 
 function PortofolioScreen(){
     const {isMobile} = useContext(DeviceContext);
@@ -18,8 +19,8 @@ function PortofolioScreen(){
     return(
         <div className='flex flex-col min-h-screen'>
           <div className='flex max-w-7xl justify-center flex-wrap sm:mx-auto mt-4 flex-grow'>
-              <PortofolioCard image={Portofolio1} name="Calorie Guru Mobile App (Flutter)"/>
-              <PortofolioCard image={Portofolio2} name="Bird Guard Mobile App (Flutter)"/>
+              <PortofolioCard image={Portofolio1} name="Calorie Guru Mobile App (Flutter)" data={portfolioDetailData[0]}/>
+              <PortofolioCard image={Portofolio2} name="Bird Guard Mobile App (Flutter)" data={portfolioDetailData[1]}/>
               <PortofolioCard image={Portofolio3} name="Backend for Playstore App Sentiment Dashboard ( Java Spring Boot )" isWide={true}/>
               <PortofolioCard image={Portofolio4} name="Personal Website (Flutter Web)" isWide={true}/>
           </div>
@@ -57,7 +58,7 @@ const PortofolioCard = (props) => {
           </div>
         </div>
         <button type="button"  onClick={() => {
-          navigate("/portfolio-details");
+          navigate("/portfolio-details",{state: {data : props.data}});
         }}  className=' bg-blue-400 w-auto px-7 h-8 rounded-md sm:ml-4  text-white'>Details</button>
     </div>
 
