@@ -119,7 +119,7 @@ const CertificateCard = (props) => {
     return (
     <div className='sm:my-3 mx-3 '>
         <h1 className="pt-10 text-xl font-bold">{props.name}</h1>
-        <div className="relative sm:max-w-xl  max-h-96  overflow-hidden rounded-lg group shadow-xl">
+        <div className="relative   overflow-hidden rounded-lg group shadow-xl">
           {/* Image */} 
           <img
             src={props.image}

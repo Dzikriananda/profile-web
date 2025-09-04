@@ -111,7 +111,7 @@ function Carousel(props) {
         slidesToShow: slidesToShow,
         slidesToScroll: slidesToScroll,
         dotsClass: "custom-dots",
-      };
+    };
       return (
         <div className="sm:w-[800px] h-auto mt-9 sm:mt-0">
           <Slider {...settings}>

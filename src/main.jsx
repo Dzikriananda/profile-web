@@ -30,7 +30,7 @@ const App = () => {
     <ScreenContext.Provider value={[showNavBar,setShowNavBar]}>
       <DeviceContext.Provider value={{ isMobile }}>
         <BrowserRouter basename='/'>
-          <NavBar />
+          <NavBar/>
           <Routes>
             <Route path="/" element={<HomeScreen />} />
             <Route path="/resume" element={<ResumeScreen />} />

@@ -28,6 +28,9 @@ import birdGuard18 from '../assets/images/portofolio-2/18.webp';
 import birdGuard19 from '../assets/images/portofolio-2/19.webp';
 import birdGuard20 from '../assets/images/portofolio-2/20.webp';
 import birdGuard21 from '../assets/images/portofolio-2/21.webp';
+import dashboardBe1 from '../assets/images/portofolio-3/1.webp';
+import dashboardBe2 from '../assets/images/portofolio-3/2.webp';
+
 
 
 const calorieGuruDetail = new PortfolioDetail(
@@ -119,6 +122,63 @@ const calorieGuruDetail = new PortfolioDetail(
     [calorieGuruImg1,calorieGuruImg2,calorieGuruImg3,calorieGuruImg4,calorieGuruImg5,calorieGuruImg6],
     1,
     1
+);
+
+const sentimentDashboardBe = new PortfolioDetail(
+   "Backend for Playstore App Sentiment Dashboard",
+   "Java SpringBoot",
+   "February 2025",
+   "Backend Developer",
+    null,
+   "https://github.com/Dzikriananda/backend-dashboard-byond",
+   "Playstore App Sentiment Dashboard is a Web Application designed to help users understand about user feedback and overall sentiment of Playstore reviews from a certain App. The backend, developed using Java Spring Boot, provides RESTful APIs for authentication, review management, and sentiment analysis results. It integrates with external services to fetch Playstore reviews, processes them through sentiment analysis, and exposes the results to the frontend. Core backend features include secure JWT-based authentication, review data aggregation, sentiment classification, large data store for all reviews, and role-based access for admins and users. This project aims to provide actionable insights from user reviews to improve app quality and customer satisfaction. Note: The Frontend and the Machine Learning of this application, including the above image, is developed by my friends at https://github.com/Ghari73/dashboard-sentimen-project/",
+   [
+    {
+      category: "User Authentication",
+      items: [
+        {
+          title: "Login, Register, Logout",
+          description: "Allows users to securely authenticate before accessing core functionalities."
+        }
+      ]
+    },
+    {
+      category: "Data Provider",
+      items: [
+        {
+          title: "Sentiment Distribution, Score Frequency, Sentiment Cloud, Priority Review, PriorityReviewBySearch and Latest Review Date",
+          description: "Allows users to see latest useful data for the business decision making"
+        }
+      ]
+    },
+    {
+      category: "Scheduler",
+      items: [
+        {
+          title: "Flask Container API",
+          description: "Implemented SpringBoot managed Scheduler to Hit the Machine Learning Services from another container every 00:00"
+        }
+      ]
+    },
+   ],
+   [{
+    category: "Backend",
+    items: [
+      "SpringBoot",
+      "Layered Architecture (N-Tier), Layers: Controller (Endpoints) → Service → Repository (DAO) → Database",
+      "PostgreSQL for the Database",
+      "Spring Security",
+      "Protection Agaisnt XSS Attack and Cors",
+      "Use of Docker Compose as Deployment Solutions"
+    ],
+  }],
+  [
+    dashboardBe1,
+    dashboardBe2
+  ],
+  1,
+  1
+
 );
 
 
@@ -246,4 +306,4 @@ const birdGuardDetail = new PortfolioDetail(
     );
   
 
-export const portfolioDetailData = [calorieGuruDetail,birdGuardDetail]
+export const portfolioDetailData = [calorieGuruDetail,birdGuardDetail,sentimentDashboardBe]

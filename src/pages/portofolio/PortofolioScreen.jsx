@@ -21,7 +21,7 @@ function PortofolioScreen(){
           <div className='flex max-w-7xl justify-center flex-wrap sm:mx-auto mt-4 flex-grow'>
               <PortofolioCard image={Portofolio1} name="Calorie Guru Mobile App (Flutter)" data={portfolioDetailData[0]}/>
               <PortofolioCard image={Portofolio2} name="Bird Guard Mobile App (Flutter)" data={portfolioDetailData[1]}/>
-              <PortofolioCard image={Portofolio3} name="Backend for Playstore App Sentiment Dashboard ( Java Spring Boot )" isWide={true}/>
+              <PortofolioCard image={Portofolio3} name="Backend for Playstore App Sentiment Dashboard ( Java Spring Boot )" data={portfolioDetailData[2]} isWide={true}/>
               <PortofolioCard image={Portofolio4} name="Personal Website (Flutter Web)" isWide={true}/>
           </div>
           <div className={`mt-16 min-h-[80px] bg-blue-100  w-full flex items-center justify-center`}>
