@@ -108,6 +108,7 @@ function InquiryComponent() {
                 { emailFieldStatus.isError ? <h1 className="self-start text-red-800 mx-4">{emailFieldStatus.message}</h1> : '' }
             </div>
             <div>
+                
             <h1>Name</h1>
                 <input 
                     name="nameInput" 
