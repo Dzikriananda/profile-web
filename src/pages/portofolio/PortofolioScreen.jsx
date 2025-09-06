@@ -67,6 +67,7 @@ const PortofolioCard = ({ image, name, data }) => {
             Details
           </button>
         )}
+      
       </div>
     </div>
   );

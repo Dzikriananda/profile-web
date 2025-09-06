@@ -59,41 +59,41 @@ function HomeScreen() {
 
   return (
     <div>
-      <div className='sm:mx-60'>
-      {(!isMobile) ? 
-      <div className='bg-white'>
-        <div className='mt-10'>
-          <div class="flex flex-row justify-between items-center mx-auto  ">
-            <div>
-              <h1 className="text-3xl font-medium">
-                Hi, I'm Dzikri Ananda
-              </h1>
-              <TypingCharacter/>
-              <p class="w-full max-w-xl text-justify text-lg"> 
-              Passionate and self-driven Fullstack application developer with a strong desire to contribute my skills to diverse projects. My background spans mobile, web, and backend development, and I am committed to staying abreast of the latest industry trends through continuous learning and skill enhancement.
-              </p>
+      <div className='xl:mx-60 lg:mx-40 md:mx-30 sm:mx-20 '>
+        {(!isMobile) ? 
+        <div className='bg-white'>
+          <div className='mt-10'>
+            <div class="flex flex-row justify-between items-center mx-auto    ">
+              <div>
+                <h1 className="text-3xl font-medium">
+                  Hi, I'm Dzikri Ananda
+                </h1>
+                <TypingCharacter/>
+                <p class="w-full max-w-xl text-justify lg:text-lg md:text-base sm:text-sm text-xs"> 
+                Passionate and self-driven Fullstack application developer with a strong desire to contribute my skills to diverse projects. My background spans mobile, web, and backend development, and I am committed to staying abreast of the latest industry trends through continuous learning and skill enhancement.
+                </p>
+              </div>
+              <img src={profilePhoto} class='xl:h-[500px] lg:h-[400px] md:h-[300px] sm:h-[200px]  rounded-full'></img>
             </div>
-            <img src={profilePhoto} class='md:h-[500px] sm:h-[300px] rounded-full'></img>
           </div>
-        </div>
-        <ServicesCard/>
-        
-      </div> : 
-      <div>
+          <ServicesCard/>
+          
+        </div> : 
         <div>
-              <img src={profilePhoto} class='h-[400px] mx-auto mt-[40px] rounded-full'></img>
-              <h1 className="mx-8 text-xl font-bold mt-6">
-                Hi, I'm Dzikri Ananda
-              </h1>
-              <TypingCharacter/>
-              <p class="mx-8 text-justify text-sm"> 
-              Passionate and self-driven Fullstack application developer with a strong desire to contribute my skills to diverse projects. My background spans mobile, web, and backend development, and I am committed to staying abreast of the latest industry trends through continuous learning and skill enhancement.
-              </p>
+          <div>
+                <img src={profilePhoto} class='h-[400px] mx-auto mt-[40px] rounded-full'></img>
+                <h1 className="mx-8 text-xl font-bold mt-6">
+                  Hi, I'm Dzikri Ananda
+                </h1>
+                <TypingCharacter/>
+                <p class="mx-8 text-justify text-sm"> 
+                Passionate and self-driven Fullstack application developer with a strong desire to contribute my skills to diverse projects. My background spans mobile, web, and backend development, and I am committed to staying abreast of the latest industry trends through continuous learning and skill enhancement.
+                </p>
+          </div>
+          <ServicesCard/>
         </div>
-        <ServicesCard/>
-      </div>
-      
-      }
+        
+        }
       </div>
       <div className={`${isMobile ? 'mt-10' : ''} min-h-[80px] bg-blue-100  w-full flex items-center justify-center`}>
         <h3 className={`${isMobile ? 'text-center text-sm' : ''}`}>
@@ -109,7 +109,7 @@ function TypingCharacter() {
   return (
     <div className={`${isMobile ? '' : ''}`}>
       <TypeAnimation
-        className={`${isMobile ? 'mx-8' : ''}`}
+        className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl  ${isMobile ? 'mx-8' : ''}`}
         sequence={[
           // Same substring at the start will only be typed out once, initially
           'Fullstack Developer',
@@ -124,7 +124,6 @@ function TypingCharacter() {
         wrapper="span"
         speed={50}
         style= {{
-          fontSize: isMobile ? '24px' : '3em',
           display: 'inline-block',
           color: '#60A5FA',
         }}      
@@ -138,7 +137,6 @@ function TypingCharacter() {
 function ServicesCard() {
   const { isMobile } = useContext(DeviceContext);
 
-  // Skills to bold inside backend description
   const skills = [
     'Java Spring Boot',
     'Node.js',
@@ -157,17 +155,17 @@ function ServicesCard() {
   ];
 
   return (
-    <div className={`flex justify-between mt-14 mb-9 flex-wrap max-w-full mx-auto`}>
+    <div className={`  md:grid md:grid-cols-2  justify-items-center gap-10 mt-14 mb-9 max-w-full ${isMobile ? 'mx-5' : ''}`}>
       {services.map((service, index) => (
         <div
           key={index}
-          className={`w-full max-w-[500px] my-7 bg-white border-solid border-blue-400 border-2 rounded-lg p-8 shadow-xl ${
-            isMobile ? 'mx-4' : ''
+          className={`w-full   bg-white border-solid border-blue-400 border-2 rounded-lg p-8 shadow-xl ${
+            isMobile ? '' : ''
           }`}
         >
           {service.icon}
-          <h1 className="text-xl font-semibold mt-2">{service.title}</h1>
-          <p className={`text-justify mt-2 ${isMobile ? 'text-sm' : 'text-lg'}`}>
+          <h1 className="xl:text-xl lg:text-lg md:text-base sm:text-sm font-semibold mt-2">{service.title}</h1>
+          <p className={`text-justify mt-2 xl:text-xl lg:text-lg md:text-base sm:text-sm text-xs`}>
             <BoldKeywords text={service.description} keywords={skills} />
           </p>
           <div className="flex justify-center mt-4 flex-wrap">
@@ -206,3 +204,4 @@ export default HomeScreen;
 
 
 
+// xl:bg-black lg:bg-blue-400 md:bg-red-500 sm:bg-slate-600

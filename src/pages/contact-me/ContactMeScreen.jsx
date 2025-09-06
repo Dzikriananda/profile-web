@@ -16,7 +16,7 @@ function ContactMeScreen() {
 
     return (
         <div>
-            {(!isMobile) ? <DesktopScreen/> : <MobileScreen/>}
+           <ResponsiveWidget/>
            <div className={`${isMobile ? 'mt-10' : 'fixed bottom-0'} min-h-[80px] bg-blue-100  w-full flex items-center justify-center`}>
                 <h3 className={`${isMobile ? 'text-center text-sm' : ''}`}>
                 © Copyright 2025. All Rights Reserved. Supported By DreamyBullXXX (Ambatukam)
@@ -25,6 +25,18 @@ function ContactMeScreen() {
         </div>
     );
 }
+
+function ResponsiveWidget() {
+    return (
+      <div>
+        <div className="block md:hidden"><MobileScreen/></div>
+        <div className="hidden md:block lg:hidden"><MobileScreen/></div>
+        <div className="hidden lg:block xl:hidden"><DesktopScreen/></div>
+        <div className="hidden xl:block"><DesktopScreen/></div>
+      </div>
+    );
+  }
+
 
 function DesktopScreen() {
     return (

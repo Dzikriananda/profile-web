@@ -10,7 +10,7 @@ export function PortofolioDetailScreen() {
   return (
     <div className="">
       <ResponsiveView data={data} />
-      <div className="lg:px-[255px] px-9">
+      <div className="xl:px-[255px] lg:px-[130px] px-9">
         <h1 className="mt-10 text-2xl font-bold">Description</h1> 
         <p className="text-justify">{data.description}</p> 
         <h1 className="mt-10 text-2xl font-bold">Features</h1> 
@@ -36,7 +36,8 @@ function ResponsiveView({ data }) {
       </div>
 
       {/* Info Box */}
-      <div className="mt-6 lg:mt-0 lg:ml-6 lg:w-96 w-full px-6 py-8 bg-white rounded-lg shadow-xl self-start">
+      <div className="mt-6 lg:mt-0 lg:ml-6 lg:w-96 w-full px-6 py-8 bg-white rounded-lg shadow-xl self-start min-w-48">
+        
         <p className="text-gray-800 font-bold text-xl break-words text-start">
           Portfolio Information
         </p>
@@ -83,13 +84,25 @@ function BottomBar() {
 }
 
 function Carousel({ data, slidesToShow, slidesToScroll }) {
+  const dots = slidesToShow
+  const length = Object.keys(data).length
+  // console.log(`jumlah dot ${dotNumber} jumlah slides ${data} jumlah slidestoscroll ${slidesToScroll}`)
+  // console.log(`jumlah dot ${dotNumber} jumlah slides ${data} jumlah slidestoscroll ${slidesToScroll}`)
+  const dotsSum = length/dots
+  
+
   const settings = {
     dots: true,
     infinite: false,
     speed: 500,
     slidesToShow: slidesToShow,
     slidesToScroll: slidesToScroll,
-    dotsClass: "custom-dots",
+    dotsClass: `custom-dots`,
+    appendDots: dots => (
+      <div>
+        <ul>{dots}</ul>
+      </div>
+    ),
     responsive: [
       {
         breakpoint: 1024, // tablets
@@ -103,7 +116,7 @@ function Carousel({ data, slidesToShow, slidesToScroll }) {
   };
 
   return (
-    <div className="h-auto mt-9 lg:mt-0">
+    <div className="h-auto mt-9 lg:mt-0 ">
       <Slider {...settings}>
         {data.map((imgPath, index) => (
           <img

@@ -4,7 +4,7 @@
 /* Poppins Thin */
 /* In global.css */
 .custom-dots {
-    @apply flex justify-center bg-white/30 rounded-full w-56 sm:mt-2 mt-3 mx-auto;
+    @apply flex justify-center bg-white/30 max-w-72 rounded-full sm:mt-2 mt-3 mx-auto;
   }
   .custom-dots li {
     @apply inline-block;
