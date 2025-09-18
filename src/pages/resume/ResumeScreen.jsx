@@ -15,7 +15,7 @@ function ResumeScreen() {
     const {isMobile} = useContext(DeviceContext);
     return (
         <div className='h-screen flex flex-col'>
-            <DesktopScreen/>
+            <ResumeItems/>
             <div className={`${isMobile ? 'mt-10' : ''} min-h-[80px] bg-blue-100  w-full flex items-center justify-center`}>
                 <h3 className={`${isMobile ? 'text-center text-sm' : ''}`}>
                 © Copyright 2025. All Rights Reserved. Supported By DreamyBullXXX (Ambatukam)
@@ -25,7 +25,7 @@ function ResumeScreen() {
     );
 }
 
-function DesktopScreen() {
+function ResumeItems() {
     const {isMobile} = useContext(DeviceContext);
     return (
         <div className='grow'>

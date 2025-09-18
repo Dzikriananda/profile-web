@@ -2,11 +2,14 @@ import Portofolio1 from '../../assets/images/portofolio-1.png';
 import Portofolio2 from '../../assets/images/portofolio-2.png';
 import Portofolio3 from '../../assets/images/portofolio-3.webp';
 import Portofolio4 from '../../assets/images/portofolio-4.png';
+import PortofolioSuwlit from '../../assets/images/portofolio-suwlit.png';
+
 import { useState, useEffect, useContext } from 'react';
 import { DeviceContext } from '../../context/DeviceContext';
 import { useNavigate } from "react-router";
 import { ScreenContext } from "../../context/ScreenContext.";
 import { portfolioDetailData } from '../../utils/data';
+import flutterLogo from '../../assets/images/flutter-Logo.png'
 
 function PortofolioScreen() {
   const { isMobile } = useContext(DeviceContext);
@@ -17,9 +20,10 @@ function PortofolioScreen() {
   }, []);
 
   const portfolioItems = [
-    { image: Portofolio1, name: "Calorie Guru Mobile App (Flutter)", data: portfolioDetailData[0] },
-    { image: Portofolio2, name: "Bird Guard Mobile App (Flutter)", data: portfolioDetailData[1] },
-    { image: Portofolio3, name: "Backend for Playstore App Sentiment Dashboard (Java Spring Boot)", data: portfolioDetailData[2] },
+    { image: PortofolioSuwlit, name: "Suwlit (Suit/Rock Paper Scissors) Mobile Game ", data: portfolioDetailData[0] },
+    { image: Portofolio1, name: "Calorie Guru Mobile App (Flutter)", data: portfolioDetailData[1] },
+    { image: Portofolio2, name: "Bird Guard Mobile App (Flutter)", data: portfolioDetailData[2] },
+    { image: Portofolio3, name: "Backend for Playstore App Sentiment Dashboard (Java Spring Boot)", data: portfolioDetailData[3] },
     { image: Portofolio4, name: "Personal Website (Flutter Web)" }
   ];
 

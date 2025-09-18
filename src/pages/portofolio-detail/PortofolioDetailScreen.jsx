@@ -2,6 +2,9 @@ import { useLocation } from "react-router";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import YouTube from "react-youtube";
+import { useState,useEffect } from "react";
+import { Dropdown, DropdownItem } from "flowbite-react";
 
 export function PortofolioDetailScreen() {
   const { state } = useLocation();
@@ -16,6 +19,8 @@ export function PortofolioDetailScreen() {
         <h1 className="mt-10 text-2xl font-bold">Features</h1> 
         <Features data={data.features}/> 
         <TechnologiesUsed data={data.techUsed}/>
+        <VideoPlayer/>  
+        
       </div>
       
       <BottomBar />
@@ -36,7 +41,7 @@ function ResponsiveView({ data }) {
       </div>
 
       {/* Info Box */}
-      <div className="mt-6 lg:mt-0 lg:ml-6 lg:w-96 w-full px-6 py-8 bg-white rounded-lg shadow-xl self-start min-w-48">
+      <div className="mt-6 lg:mt-0 lg:ml-6   px-6 py-8 bg-white rounded-lg shadow-xl w-full self-start sm:min-w-48">
         
         <p className="text-gray-800 font-bold text-xl break-words text-start">
           Portfolio Information
@@ -54,18 +59,26 @@ function ResponsiveView({ data }) {
         <h1 className="text-start my-2">
           <span className="font-semibold">Role</span> : {data.role}
         </h1>
-        <h1 className="text-start my-2 break-words">
-          <span className="font-semibold">APK File URL</span> :{" "}
-          <a className="text-blue-500" href={data.apkUrl}>
-            {data.apkUrl}
-          </a>
-        </h1>
-        <h1 className="text-start my-2 break-words">
-          <span className="font-semibold">Repository URL</span> :{" "}
-          <a className="text-blue-500" href={data.repoUrl}>
-            {data.repoUrl}
-          </a>
-        </h1>
+        {
+          (data.apkUrl != null) ? 
+              <h1 className="text-start my-2 break-words">
+              <span className="font-semibold">APK File URL</span> :{" "}
+              <a className="text-blue-500" href={data.apkUrl}>
+                {data.apkUrl}
+              </a>
+            </h1> : null
+        }
+        {
+          data.repoUrls.map((item,index) => (
+            <h1 key={index} className="text-start my-2 break-words">
+              <span className="font-semibold">Repository URL ({item.type})</span> :{" "}
+              <a className="text-blue-500" href={item.url}>
+                {item.url}
+              </a>
+            </h1>
+          ))
+        }
+    
       </div>
       
     </div>
@@ -81,6 +94,132 @@ function BottomBar() {
       </h3>
     </div>
   );
+}
+
+
+
+function VideoPlayer() {
+  const [width, setWidth] = useState(window.innerWidth);
+  function handleWindowSizeChange() {
+        setWidth(window.innerWidth);
+    }
+    useEffect(() => {
+        window.addEventListener('resize', handleWindowSizeChange);
+        return () => {
+            window.removeEventListener('resize', handleWindowSizeChange);
+        }
+    }, []
+  );
+  const isMobile = width <= 768;
+  function isBold(input) {
+    const isCurrentPage = input === activeTab;
+    if(isCurrentPage) {
+      return 'font-bold';
+    }
+  }
+
+  const [activeTab, setActiveTab] = useState("loginRegisterWithEmail");
+
+  const videos = {
+    loginRegisterWithEmail: {
+      title : "Login And Register with Email",
+      videoId : "pOPaSGSyryo",
+    
+    },
+    loginRegisterWithGoogle: {
+      title : "Login And Register with Google",
+      videoId : "iDDDxY9wWEU"
+    },
+    playGameVsPlayers: {
+      title : "Play Game Against Real Players",
+      videoId : "zeykcMQVQ04"
+    },
+    playGameVsBot: {
+      title : "Play Game Against Bot",
+      videoId : "zeykcMQVQ04"
+    },
+    seeGameHistoryAndTop100Players: {
+      title : "See Game History and Top 100 Players",
+      videoId : "zeykcMQVQ04"
+    },
+
+  };
+
+  if(isMobile) {
+    return (
+      <div className="mt-8">
+        <h1 className="text-2xl font-bold mb-4">App Demo</h1>
+        <Dropdown label="See Another Feature Demo Video" dismissOnClick={false} className="mb-4">
+          {Object.keys(videos).map((key) => (
+              <DropdownItem 
+                key={key} 
+                className={`${isBold(key)}`}
+                onClick={() => setActiveTab(key)}
+              >
+                  {videos[key].title}
+              </DropdownItem>
+            ))}
+        </Dropdown >
+        <div className="relative w-full pb-[56.25%]">
+          <YouTube
+            videoId={videos[activeTab].videoId}
+            opts={{
+              width: "100%",
+              height: "100%",
+              playerVars: {
+                autoplay: 1,
+                controls: 1,
+              },
+            }}
+            className="absolute  w-full h-full"
+          />
+        </div>
+        <h2 className="text-center text-xl font-semibold mt-4">Login And Register With Email Demo</h2>
+      </div>
+    );
+
+  } else {
+    return (
+      <div className="w-full mx-auto p-6 ">
+        <h2 className="text-2xl font-bold mb-4 ">App Demo</h2>
+  
+        {/* Tabs */}
+        <div className="flex space-x-2 border-b border-gray-300 mb-4">
+          {Object.keys(videos).map((key) => (
+            <button
+              key={key}
+              onClick={() => setActiveTab(key)}
+              className={`px-4 py-2 text-sm font-medium rounded-t-md 
+                ${
+                  activeTab === key
+                    ? "bg-blue-500 text-white"
+                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                }`}
+            >
+              {videos[key].title}
+            </button>
+          ))}
+        </div>
+  
+        {/* Video */}
+        <div className="relative w-full pb-[56.25%]">
+          <YouTube
+            videoId={videos[activeTab].videoId}
+            opts={{
+              width: "100%",
+              height: "100%",
+              playerVars: {
+                autoplay: 1,
+                controls: 1,
+              },
+            }}
+  
+            className="absolute  w-full h-full"
+          />
+        </div>
+      </div>
+    );
+  }
 }
 
 function Carousel({ data, slidesToShow, slidesToScroll }) {

@@ -59,7 +59,8 @@ const NavBar = () => {
             <SocialIcon url="https://instagram.com" href='https://id.linkedin.com/in/dzikri-ananda/' bgColor='none'/>
             <SocialIcon url="https://linkedin.com" href='https://id.linkedin.com/in/dzikri-ananda/' bgColor='none'/>
             {(isMobile) ? 
-              <Dropdown 
+             <div className='ml-5'>
+               <Dropdown 
                 dismissOnClick={false}
                 style={{ backgroundColor: '#76A9FA' }}
                 renderTrigger={() => <AlignJustify color='#ffffff' className=' mr-3'/>}
@@ -69,7 +70,8 @@ const NavBar = () => {
                   <DropdownItem className={`${isBold('/certificates')}`} onClick={() => navigate('/certificates')}>Certificates</DropdownItem>
                   <DropdownItem className={`${isBold('/portofolio')}`} onClick={() => navigate('/portofolio')}>Portofolio</DropdownItem>
                   <DropdownItem className={`${isBold('/contact-me')}`} onClick={() => navigate('/contact-me')}>Contact Me</DropdownItem>
-              </Dropdown>
+                </Dropdown>
+             </div>
             : null}
           </div> : <div></div>}
     </div>

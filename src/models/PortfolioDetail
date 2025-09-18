@@ -1,11 +1,11 @@
 export default class PortfolioDetail {
-    constructor(name, techStack, date, role, apkUrl, repoUrl, description, features, techUsed, imgPath,slideToShow,slideToScroll) {
+    constructor(name, techStack, date, role, apkUrl, repoUrls, description, features, techUsed, imgPath,slideToShow,slideToScroll) {
         this.name = name;
         this.techStack = techStack;
         this.date = date;
         this.role = role;
         this.apkUrl = apkUrl;
-        this.repoUrl = repoUrl;
+        this.repoUrls = repoUrls;
         this.description = description;
         this.features = features;
         this.techUsed = techUsed;

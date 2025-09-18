@@ -15,7 +15,7 @@ function ContactMeScreen() {
     const {isMobile} = useContext(DeviceContext);
 
     return (
-        <div>
+        <div className="">
            <ResponsiveWidget/>
            <div className={`${isMobile ? 'mt-10' : 'fixed bottom-0'} min-h-[80px] bg-blue-100  w-full flex items-center justify-center`}>
                 <h3 className={`${isMobile ? 'text-center text-sm' : ''}`}>

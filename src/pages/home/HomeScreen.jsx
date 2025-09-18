@@ -56,12 +56,12 @@ const services = [
 function HomeScreen() {
 
   const {isMobile} = useContext(DeviceContext);
-
+  // bg-gradient-to-r from-blue-500 to-cyan-500
   return (
-    <div>
+    <div className="">
       <div className='xl:mx-60 lg:mx-40 md:mx-30 sm:mx-20 '>
         {(!isMobile) ? 
-        <div className='bg-white'>
+        <div className='bg-transparent'>
           <div className='mt-10'>
             <div class="flex flex-row justify-between items-center mx-auto    ">
               <div>
@@ -69,7 +69,7 @@ function HomeScreen() {
                   Hi, I'm Dzikri Ananda
                 </h1>
                 <TypingCharacter/>
-                <p class="w-full max-w-xl text-justify lg:text-lg md:text-base sm:text-sm text-xs"> 
+                <p class="max-w-xl text-justify lg:text-lg md:text-base sm:text-sm text-xs"> 
                 Passionate and self-driven Fullstack application developer with a strong desire to contribute my skills to diverse projects. My background spans mobile, web, and backend development, and I am committed to staying abreast of the latest industry trends through continuous learning and skill enhancement.
                 </p>
               </div>
@@ -155,11 +155,11 @@ function ServicesCard() {
   ];
 
   return (
-    <div className={`  md:grid md:grid-cols-2  justify-items-center gap-10 mt-14 mb-9 max-w-full ${isMobile ? 'mx-5' : ''}`}>
+    <div className={`  md:grid md:grid-cols-2  justify-items-center  gap-10 mt-14 mb-9 max-w-full ${isMobile ? 'mx-5' : ''}`}>
       {services.map((service, index) => (
         <div
           key={index}
-          className={`w-full   bg-white border-solid border-blue-400 border-2 rounded-lg p-8 shadow-xl ${
+          className={`w-full md:mt-0 mt-7 bg-white border-solid border-blue-400 border-2 rounded-lg p-8 shadow-xl ${
             isMobile ? '' : ''
           }`}
         >

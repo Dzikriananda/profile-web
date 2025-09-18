@@ -30,7 +30,112 @@ import birdGuard20 from '../assets/images/portofolio-2/20.webp';
 import birdGuard21 from '../assets/images/portofolio-2/21.webp';
 import dashboardBe1 from '../assets/images/portofolio-3/1.webp';
 import dashboardBe2 from '../assets/images/portofolio-3/2.webp';
+import suwlit1 from '../assets/images/portofolio-4/1.webp';
+import suwlit2 from '../assets/images/portofolio-4/2.webp';
+import suwlit3 from '../assets/images/portofolio-4/3.webp';
+import suwlit4 from '../assets/images/portofolio-4/4.webp';
+import suwlit5 from '../assets/images/portofolio-4/5.webp';
+import suwlit6 from '../assets/images/portofolio-4/6.webp';
+import suwlit7 from '../assets/images/portofolio-4/7.webp';
+import suwlit8 from '../assets/images/portofolio-4/8.webp';
+import suwlit9 from '../assets/images/portofolio-4/9.webp';
+import suwlit10 from '../assets/images/portofolio-4/10.webp';
+import suwlit11 from '../assets/images/portofolio-4/11.webp';
+import suwlit12 from '../assets/images/portofolio-4/12.webp';
+import suwlit13 from '../assets/images/portofolio-4/13.webp';
+import suwlit14 from '../assets/images/portofolio-4/14.webp';
+import suwlit15 from '../assets/images/portofolio-4/15.webp';
+import RepoUrl from "../models/RepoUrl";
 
+const suwtlitAppDetail = new PortfolioDetail(
+  "Suwlit (Suit / Rock-Paper-Scissors Game)",
+  "Kotlin Jetpack Compose, Java SpringBoot",
+  "May–September 2025",
+  "Full-Stack Developer (Mobile & Backend)",
+  null,
+  [
+    new RepoUrl("https://github.com/Dzikriananda/SuwlitRockPapperScissor-MobileApp","Mobile App"),
+    new RepoUrl("https://github.com/Dzikriananda/SuwlitRockPapperScissor-Backend","Backend")
+  ],
+  "Welcome to Suwlit – the ultimate rock-paper-scissors game at your fingertips! Suwlit brings the classic hand game to life with a fun and interactive design, allowing you to challenge yourself anytime, anywhere. Whether you want a quick match to pass the time or to sharpen your strategy, Suwlit makes it simple and enjoyable. Get ready to play, compete, and experience the timeless game in a modern way!",
+  [
+    {
+      category: "User Authentication",
+      items: [
+        {
+          title: "Login, Register, Logout",
+          description: "Allows users to securely authenticate before accessing the game functionalities"
+        },
+        {
+          "title": "Google Authentication",
+          "description": "Enables users to sign in using their Google account for quick and secure login"
+        }
+      ]
+    },
+    {
+      category: "Game Modes",
+      items: [
+        {
+          title: "Vs Players",
+          description: "Play against real players in real time."
+        },
+        {
+          title: "Vs Bot",
+          description: "Practice anytime by playing against an AI-powered bot."
+        }
+      ]
+    },
+    {
+      category: "Game Information",
+      items: [
+        {
+          title: "View History Results",
+          description: "Displays previous game results."
+        },
+        {
+          title: "View Top 100 Players",
+          description: "Browse the leaderboard to see the top 100 players ranked by their scores and achievements."
+        },
+        {
+          title: "View Tutorial",
+          description: "Learn the rules and gameplay through the tutorial page."
+        }
+      ]
+    }
+  ],
+  [
+    {
+      category: "Frontend Mobile App",
+      items: [
+        "Kotlin with Jetpack Compose for the UI",
+        "MVVM Architecture with Dagger Hilt for dependency injection",
+        "Retrofit package for REST API interactions",
+        "KrossBow for real-time WebSocket communication"
+      ]
+    },
+    {
+      category: "Backend",
+      items: [
+        "Java Spring Boot",
+        "Google Gmail Authentication from Firebase",
+        "Layered Architecture (N-Tier): Controller → Service → Repository (DAO) → Database",
+        "PostgreSQL for the database",
+        "Spring Security for authentication and authorization",
+        "STOMP protocol for enabling real-time gameplay over WebSocket",
+        "Deployed with Docker on an Ubuntu VPS for scalability and high performance",
+        "Redis for Caching",
+        "Java Reactor to enable Reactive Programming and broadcasting"
+      ]
+    }
+  ],
+  [
+    suwlit1, suwlit2, suwlit3, suwlit4, suwlit5, suwlit6,
+    suwlit7, suwlit8, suwlit9, suwlit10, suwlit11, suwlit12,
+    suwlit13, suwlit14, suwlit15
+  ],
+  3,
+  3
+);
 
 
 const calorieGuruDetail = new PortfolioDetail(
@@ -39,7 +144,7 @@ const calorieGuruDetail = new PortfolioDetail(
     "August-December 2023",
     "Fullstack Developer (Mobile and Backend)",
     "https://drive.google.com/file/d/1FKilu2HHDswlS2cH5HQsZkLfPwrfmWjt/view",
-    "https://github.com/Dzikriananda/CalorieGuru-MobileApp",
+    [new RepoUrl("https://github.com/Dzikriananda/CalorieGuru-MobileApp","Mobile App")],
     "Welcome to Calorie Guru - your go-to application for tracking and managing your daily calorie intake! Calorie Guru is designed to help users easily log their daily calorie consumption, providing a convenient way to monitor their diet and make informed decisions about their nutrition. This app simplifies the process of keeping track of calories consumed throughout the day.",
     [
         {
@@ -130,7 +235,7 @@ const sentimentDashboardBe = new PortfolioDetail(
    "February 2025",
    "Backend Developer",
     null,
-   "https://github.com/Dzikriananda/backend-dashboard-byond",
+   [new RepoUrl("https://github.com/Dzikriananda/backend-dashboard-byond","Backend")],
    "Playstore App Sentiment Dashboard is a Web Application designed to help users understand about user feedback and overall sentiment of Playstore reviews from a certain App. The backend, developed using Java Spring Boot, provides RESTful APIs for authentication, review management, and sentiment analysis results. It integrates with external services to fetch Playstore reviews, processes them through sentiment analysis, and exposes the results to the frontend. Core backend features include secure JWT-based authentication, review data aggregation, sentiment classification, large data store for all reviews, and role-based access for admins and users. This project aims to provide actionable insights from user reviews to improve app quality and customer satisfaction. Note: The Frontend and the Machine Learning of this application, including the above image, is developed by my friends at https://github.com/Ghari73/dashboard-sentimen-project/",
    [
     {
@@ -189,7 +294,7 @@ const birdGuardDetail = new PortfolioDetail(
     "March - June 2024",
     "Frontend Mobile Developer",
     null,
-    "https://github.com/Dzikriananda/aplikasi-identifikasi-burung",
+    [new RepoUrl("https://github.com/Dzikriananda/aplikasi-identifikasi-burung","Mobile App")],
     "Bird Guard is a mobile application designed to help users detect and identify protected bird species in Indonesia. Developed using Flutter and Dart, it serves as the frontend module interfacing with a backend that processes predictions using a CNN model that hosted in seperate Backend that created by . The app includes core features such as user authentication, bird species detection, profile settings, and detection history. It aims to empower users in biodiversity protection through easy-to-use bird identification technology.",
     [
       {
@@ -306,4 +411,4 @@ const birdGuardDetail = new PortfolioDetail(
     );
   
 
-export const portfolioDetailData = [calorieGuruDetail,birdGuardDetail,sentimentDashboardBe]
+export const portfolioDetailData = [suwtlitAppDetail,calorieGuruDetail,birdGuardDetail,sentimentDashboardBe]
