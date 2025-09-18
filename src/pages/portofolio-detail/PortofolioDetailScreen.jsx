@@ -149,7 +149,7 @@ function VideoPlayer() {
     return (
       <div className="mt-8">
         <h1 className="text-2xl font-bold mb-4">App Demo</h1>
-        <Dropdown label="See Another Feature Demo Video" dismissOnClick={false} className="mb-4">
+        <Dropdown label="See Another Feature Demo Video" dismissOnClick={true} className="mb-4">
           {Object.keys(videos).map((key) => (
               <DropdownItem 
                 key={key} 
