@@ -134,7 +134,38 @@ const suwtlitAppDetail = new PortfolioDetail(
     suwlit13, suwlit14, suwlit15
   ],
   3,
-  3
+  3,
+  {
+    loginRegisterWithEmail: {
+      title : "Login And Register with Email",
+      videoId : "Cm8WRp8b2y4",
+    
+    },
+    loginRegisterWithGoogle: {
+      title : "Login And Register with Google",
+      videoId : "m_xN0Bg9NMI"
+    },
+    playGameVsPlayers: {
+      title : "Play Game Against Real Players",
+      videoId : "2R7pcezHkzw"
+    },
+    playGameVsBot: {
+      title : "Play Game Against Bot",
+      videoId : "wm7gm2JErlY"
+    },
+    seeGameHistory: {
+      title : "See Game History",
+      videoId : "nhAa3ikIHUk"
+    },
+    seeGameTop100Players: {
+      title : "See Top 100 Players",
+      videoId : "Tjuo1GW3jIU"
+    },
+    seeGameTutorial: {
+      title : "See Game Tutorial",
+      videoId : "4TQUfFwD6EE"
+    },
+  }
 );
 
 
@@ -226,7 +257,8 @@ const calorieGuruDetail = new PortfolioDetail(
       },],
     [calorieGuruImg1,calorieGuruImg2,calorieGuruImg3,calorieGuruImg4,calorieGuruImg5,calorieGuruImg6],
     1,
-    1
+    1,
+    null
 );
 
 const sentimentDashboardBe = new PortfolioDetail(
@@ -282,7 +314,8 @@ const sentimentDashboardBe = new PortfolioDetail(
     dashboardBe2
   ],
   1,
-  1
+  1,
+  null
 
 );
 
@@ -406,7 +439,8 @@ const birdGuardDetail = new PortfolioDetail(
         birdGuard21,
       ],
       3,
-      3
+      3,
+      null
 
     );
   

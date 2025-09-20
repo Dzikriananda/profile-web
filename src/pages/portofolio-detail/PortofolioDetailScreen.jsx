@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import YouTube from "react-youtube";
 import { useState,useEffect } from "react";
 import { Dropdown, DropdownItem } from "flowbite-react";
+import { LogIn } from "lucide-react";
 
 export function PortofolioDetailScreen() {
   const { state } = useLocation();
@@ -19,7 +20,9 @@ export function PortofolioDetailScreen() {
         <h1 className="mt-10 text-2xl font-bold">Features</h1> 
         <Features data={data.features}/> 
         <TechnologiesUsed data={data.techUsed}/>
-        <VideoPlayer/>  
+        {
+          (data.videos != null) ? <VideoPlayer videoData={data.videos}/> : null
+        }  
         
       </div>
       
@@ -98,7 +101,8 @@ function BottomBar() {
 
 
 
-function VideoPlayer() {
+function VideoPlayer(props) {
+  const videos = props.videoData;
   const [width, setWidth] = useState(window.innerWidth);
   function handleWindowSizeChange() {
         setWidth(window.innerWidth);
@@ -117,33 +121,12 @@ function VideoPlayer() {
       return 'font-bold';
     }
   }
+  
 
-  const [activeTab, setActiveTab] = useState("loginRegisterWithEmail");
+  const [activeTab, setActiveTab] = useState(Object.keys(videos)[0]);
 
-  const videos = {
-    loginRegisterWithEmail: {
-      title : "Login And Register with Email",
-      videoId : "pOPaSGSyryo",
-    
-    },
-    loginRegisterWithGoogle: {
-      title : "Login And Register with Google",
-      videoId : "iDDDxY9wWEU"
-    },
-    playGameVsPlayers: {
-      title : "Play Game Against Real Players",
-      videoId : "zeykcMQVQ04"
-    },
-    playGameVsBot: {
-      title : "Play Game Against Bot",
-      videoId : "zeykcMQVQ04"
-    },
-    seeGameHistoryAndTop100Players: {
-      title : "See Game History and Top 100 Players",
-      videoId : "zeykcMQVQ04"
-    },
+  const onReady = (event) => {event.target.stopVideo() };
 
-  };
 
   if(isMobile) {
     return (
@@ -171,6 +154,7 @@ function VideoPlayer() {
                 controls: 1,
               },
             }}
+            onReady={onReady}
             className="absolute  w-full h-full"
           />
         </div>
@@ -213,6 +197,7 @@ function VideoPlayer() {
                 controls: 1,
               },
             }}
+            onReady={onReady}
   
             className="absolute  w-full h-full"
           />
