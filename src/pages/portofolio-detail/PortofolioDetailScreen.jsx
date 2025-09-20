@@ -158,14 +158,14 @@ function VideoPlayer(props) {
             className="absolute  w-full h-full"
           />
         </div>
-        <h2 className="text-center text-xl font-semibold mt-4">{videos[key].title}</h2>
+        <h2 className="text-center text-xl font-medium mt-4">{videos[activeTab].title}</h2>
       </div>
     );
 
   } else {
     return (
       <div className="w-full mx-auto p-6 ">
-        <h2 className="text-2xl font-bold mb-4 ">App Demo</h2>
+        <h2 className="text-2xl font-bold mb-4 ">App Demo Video</h2>
   
         {/* Tabs */}
         <div className="flex space-x-2 border-b border-gray-300 mb-4">
