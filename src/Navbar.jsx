@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { NavLink } from "react-router-dom";
 import { Dropdown, DropdownItem } from "flowbite-react";
 import { ScreenContext } from './context/ScreenContext.';
+import DrawerComponent from './components/DrawerComponent';
 
 const NavBar = () => {
   const [showNavBar,setShowNavBar] = useContext(ScreenContext);
@@ -60,7 +61,8 @@ const NavBar = () => {
             <SocialIcon url="https://linkedin.com" href='https://id.linkedin.com/in/dzikri-ananda/' bgColor='none'/>
             {(isMobile) ? 
              <div className='ml-5'>
-               <Dropdown 
+              <DrawerComponent/>
+               {/* <Dropdown 
                 dismissOnClick={false}
                 style={{ backgroundColor: '#76A9FA' }}
                 renderTrigger={() => <AlignJustify color='#ffffff' className=' mr-3'/>}
@@ -70,7 +72,7 @@ const NavBar = () => {
                   <DropdownItem className={`${isBold('/certificates')}`} onClick={() => navigate('/certificates')}>Certificates</DropdownItem>
                   <DropdownItem className={`${isBold('/portofolio')}`} onClick={() => navigate('/portofolio')}>Portofolio</DropdownItem>
                   <DropdownItem className={`${isBold('/contact-me')}`} onClick={() => navigate('/contact-me')}>Contact Me</DropdownItem>
-                </Dropdown>
+                </Dropdown> */}
              </div>
             : null}
           </div> : <div></div>}
@@ -80,3 +82,4 @@ const NavBar = () => {
 };
 
 export default NavBar;
+
