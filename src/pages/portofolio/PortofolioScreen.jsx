@@ -1,7 +1,7 @@
-import Portofolio1 from '../../assets/images/portofolio-1.png';
-import Portofolio2 from '../../assets/images/portofolio-2.png';
-import Portofolio3 from '../../assets/images/portofolio-3.webp';
-import Portofolio4 from '../../assets/images/portofolio-4.png';
+import PortofolioCalorieGuru from '../../assets/images/portofolio-1.png';
+import PortofolioBirdGuard from '../../assets/images/portofolio-2.png';
+import PortofolioSentimentDashboard from '../../assets/images/portofolio-3.webp';
+import PortofolioPersonalFlutterSite from '../../assets/images/portofolio-4.png';
 import PortofolioSuwlit from '../../assets/images/portofolio-suwlit.png';
 
 import { useState, useEffect, useContext } from 'react';
@@ -20,11 +20,11 @@ function PortofolioScreen() {
   }, []);
 
   const portfolioItems = [
-    { image: PortofolioSuwlit, name: "Suwlit (Suit/Rock Paper Scissors) Mobile Game ", data: portfolioDetailData[0] },
-    { image: Portofolio1, name: "Calorie Guru Mobile App (Flutter)", data: portfolioDetailData[1] },
-    { image: Portofolio2, name: "Bird Guard Mobile App (Flutter)", data: portfolioDetailData[2] },
-    { image: Portofolio3, name: "Backend for Playstore App Sentiment Dashboard (Java Spring Boot)", data: portfolioDetailData[3] },
-    { image: Portofolio4, name: "Personal Website (Flutter Web)" }
+    { id: "suwlit-mobile-game",image: PortofolioSuwlit, name: "Suwlit Mobile Game (Java Spring Boot & Kotlin)" , hasData: true},
+    { id: "bird-guard-mobile-app",image: PortofolioBirdGuard, name: "Bird Guard Mobile App (Flutter)" ,hasData : true},
+    { id: "calorie-guru-mobile-app",image: PortofolioCalorieGuru, name: "Calorie Guru Mobile App (Flutter & Firebase)", hasData : true},
+    { id: "sentiment-dashboard-be",image: PortofolioSentimentDashboard, name: "Backend for Playstore App Sentiment Dashboard (Java Spring Boot)",hasData : true},
+    { id: "personal-flutter-site",image: PortofolioPersonalFlutterSite, name: "Personal Website (Flutter Web)",hasData : false}
   ];
 
   return (
@@ -45,7 +45,7 @@ function PortofolioScreen() {
   );
 }
 
-const PortofolioCard = ({ image, name, data }) => {
+const PortofolioCard = ({ id,image, name,hasData}) => {
   const { isMobile } = useContext(DeviceContext);
   const navigate = useNavigate();
 
@@ -63,9 +63,9 @@ const PortofolioCard = ({ image, name, data }) => {
       {/* Title */}
       <div className="p-4 flex-1 flex flex-col">
         <h2 className="text-lg font-medium mb-2">{name}</h2>
-        {data && (
+        {hasData && (
           <button
-            onClick={() => navigate("/portfolio-details", { state: { data } })}
+            onClick={() => navigate(`/portfolio-details/${id}`)}
             className="mt-auto bg-blue-500 hover:bg-blue-600 text-white px-5 py-2 rounded-md self-start"
           >
             Details

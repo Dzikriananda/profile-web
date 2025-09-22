@@ -37,7 +37,7 @@ const App = () => {
             <Route path="/contact-me" element={<ContactMeScreen />} />
             <Route path="/portofolio" element={<PortofolioScreen/>} />
             <Route path="/certificates" element={<CertificatesScreen/>} />
-            <Route path="/portfolio-details" element={<PortofolioDetailScreen/>} />
+            <Route path="/portfolio-details/:portfolioId" element={<PortofolioDetailScreen/>} />
           </Routes>
         </BrowserRouter>
       </DeviceContext.Provider>

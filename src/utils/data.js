@@ -48,6 +48,7 @@ import suwlit15 from '../assets/images/portofolio-4/15.webp';
 import RepoUrl from "../models/RepoUrl";
 
 const suwtlitAppDetail = new PortfolioDetail(
+  "suwlit-mobile-game",
   "Suwlit (Suit / Rock-Paper-Scissors Game)",
   "Kotlin Jetpack Compose, Java SpringBoot",
   "May–September 2025",
@@ -170,6 +171,7 @@ const suwtlitAppDetail = new PortfolioDetail(
 
 
 const calorieGuruDetail = new PortfolioDetail(
+    "calorie-guru-mobile-app",
     "Calorie Guru",
     "Flutter, Firebase",
     "August-December 2023",
@@ -262,6 +264,7 @@ const calorieGuruDetail = new PortfolioDetail(
 );
 
 const sentimentDashboardBe = new PortfolioDetail(
+   "sentiment-dashboard-be",
    "Backend for Playstore App Sentiment Dashboard",
    "Java SpringBoot",
    "February 2025",
@@ -322,6 +325,7 @@ const sentimentDashboardBe = new PortfolioDetail(
 
 
 const birdGuardDetail = new PortfolioDetail(
+    "bird-guard-mobile-app",
     "Bird Guard",
     "Flutter",
     "March - June 2024",
@@ -445,4 +449,9 @@ const birdGuardDetail = new PortfolioDetail(
     );
   
 
-export const portfolioDetailData = [suwtlitAppDetail,calorieGuruDetail,birdGuardDetail,sentimentDashboardBe]
+export const portfolioDetailData = {
+  "suwlit-mobile-game" : suwtlitAppDetail,
+  "calorie-guru-mobile-app" : calorieGuruDetail,
+  "bird-guard-mobile-app" : birdGuardDetail,
+  "sentiment-dashboard-be" : sentimentDashboardBe
+}

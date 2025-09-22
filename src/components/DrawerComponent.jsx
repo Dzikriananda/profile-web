@@ -30,10 +30,20 @@ export default function DrawerComponent() {
   const handleClose = () => setIsOpen(false);
   const navigate = useNavigate();
 
+  const currentPagePath = window.location.pathname;
+
+  function isHighLighted(input) {
+
+    const isCurrentPage = input === currentPagePath;
+    if(isCurrentPage) {
+      return 'bg-gray-400';
+    } 
+  }
+
 
   return (
     <>
-      <div className="flex min-h-[50vh] items-center justify-center">
+      <div className="flex min-h-[50vh] items-center justify-center ">
         <Menu onClick={() => setIsOpen(true)} color="#ffffff" className="mr-4"/>
       </div>
       <Drawer open={isOpen} onClose={handleClose} position="right" className='w-56'>
@@ -47,19 +57,44 @@ export default function DrawerComponent() {
               <div>
                 <SidebarItems>
                   <SidebarItemGroup>
-                    <SidebarItem onClick={() => navigate('/')} icon={HiHome}>
+                    <SidebarItem 
+                    className={`${isHighLighted('/')} w-48`}
+                    onClick={() => {
+                      navigate('/')
+                      handleClose()
+                    }} icon={HiHome}>
                       Home
                     </SidebarItem>
-                    <SidebarItem onClick={() => navigate('/resume')} icon={HiBriefcase}>
+                    <SidebarItem 
+                    className={`${isHighLighted('/resume')} w-48`}
+                    onClick={() => {
+                      navigate('/resume')
+                      handleClose()
+                      }} icon={HiBriefcase}>
                       Resume
                     </SidebarItem>
-                    <SidebarItem onClick={() => navigate('/certificates')} icon={HiNewspaper}>
+                    <SidebarItem 
+                    className={`${isHighLighted('/certificates')} w-48`}
+                    onClick={() => {
+                      navigate('/certificates')
+                      handleClose()
+                      }} icon={HiNewspaper}>
                       Certificates
                     </SidebarItem>
-                    <SidebarItem onClick={() => navigate('/portofolio')} icon={HiDesktopComputer}>
+                    <SidebarItem
+                    className={`${isHighLighted('/portofolio')} w-48`}
+                    onClick={() => {
+                      navigate('/portofolio')
+                      handleClose()
+                      }} icon={HiDesktopComputer}>
                       Portfolio
                     </SidebarItem>
-                    <SidebarItem onClick={() => navigate('/contact-me')} icon={HiPhone}>
+                    <SidebarItem 
+                    className={`${isHighLighted('/contact-me')} w-48`}
+                    onClick={() => {
+                      navigate('/contact-me')
+                      handleClose()
+                      }} icon={HiPhone}>
                       Contact Me
                     </SidebarItem>
                   </SidebarItemGroup>

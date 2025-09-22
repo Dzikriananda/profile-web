@@ -1,4 +1,4 @@
-import { useLocation } from "react-router";
+import { useLocation,useParams } from "react-router";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -6,10 +6,12 @@ import YouTube from "react-youtube";
 import { useState,useEffect } from "react";
 import { Dropdown, DropdownItem } from "flowbite-react";
 import { LogIn } from "lucide-react";
+import { portfolioDetailData } from '../../utils/data';
 
 export function PortofolioDetailScreen() {
-  const { state } = useLocation();
-  const data = state.data;
+  const {portfolioId} = useParams();
+  const data = portfolioDetailData[portfolioId];
+  
 
   return (
     <div className="">
@@ -33,9 +35,9 @@ export function PortofolioDetailScreen() {
 
 function ResponsiveView({ data }) {
   return (
-    <div className="flex flex-col lg:flex-row justify-center mt-8 px-6 lg:px-[255px]">
+    <div className="flex flex-col lg:flex-row justify-center  mt-8 px-6 lg:px-[255px]">
       {/* Carousel */}
-      <div className="lg:w-[800px] w-full">
+      <div className="lg:w-[800px] w-full self-center">
         <Carousel
           data={data.imgPath}
           slidesToShow={data.slideToScroll}

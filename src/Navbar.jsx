@@ -62,17 +62,7 @@ const NavBar = () => {
             {(isMobile) ? 
              <div className='ml-5'>
               <DrawerComponent/>
-               {/* <Dropdown 
-                dismissOnClick={false}
-                style={{ backgroundColor: '#76A9FA' }}
-                renderTrigger={() => <AlignJustify color='#ffffff' className=' mr-3'/>}
-                className="bg-white">
-                  <DropdownItem className={`${isBold('/')}`} onClick={() => {navigate('/')}}>Home</DropdownItem>
-                  <DropdownItem className={`${isBold('/resume')}`}  onClick={() => navigate('/resume')}>Resume</DropdownItem>
-                  <DropdownItem className={`${isBold('/certificates')}`} onClick={() => navigate('/certificates')}>Certificates</DropdownItem>
-                  <DropdownItem className={`${isBold('/portofolio')}`} onClick={() => navigate('/portofolio')}>Portofolio</DropdownItem>
-                  <DropdownItem className={`${isBold('/contact-me')}`} onClick={() => navigate('/contact-me')}>Contact Me</DropdownItem>
-                </Dropdown> */}
+             
              </div>
             : null}
           </div> : <div></div>}
