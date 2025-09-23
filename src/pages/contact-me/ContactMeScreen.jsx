@@ -18,11 +18,6 @@ function ContactMeScreen() {
     return (
         <div className="">
            <ResponsiveWidget/>
-           <div className={`${isMobile ? 'mt-10' : 'fixed bottom-0'} min-h-[80px] bg-blue-100  w-full flex items-center justify-center`}>
-                <h3 className={`${isMobile ? 'text-center text-sm' : ''}`}>
-                © Copyright 2025. All Rights Reserved. Supported By DreamyBullXXX (Ambatukam)
-                </h3>
-            </div>
         </div>
     );
 }
@@ -41,12 +36,19 @@ function ResponsiveWidget() {
 
 function DesktopScreen() {
     return (
-    <div className="flex justify-center items-center flex-col">
-            <h1 className="pt-10 text-4xl font-bold">Contact Me</h1>
-            <div className='flex'>
-                <ContactComponent/>
-                <div className="w-48"></div>
-                <InquiryComponent/>
+    <div className="flex justify-center items-center flex-col min-h-[calc(100vh-80px)]">
+            <div className='grow '>
+                <h1 className="pt-10 text-4xl font-bold text-center">Contact Me</h1>
+                <div className='flex'>
+                    <ContactComponent/>
+                    <div className="w-48"></div>
+                    <InquiryComponent/>
+                </div>
+            </div>
+            <div className={`h-[80px] bg-blue-100  w-full flex items-center justify-center`}>
+                <h3>
+                © Copyright 2025. All Rights Reserved. Supported By DreamyBullXXX (Ambatukam)
+                </h3>
             </div>
 
     </div>
@@ -58,7 +60,11 @@ function MobileScreen() {
         <div>
             <ContactComponent/>
             <InquiryComponent/>
-            <div className='h-20'/>
+            <div className={`mt-10 min-h-[80px] bg-blue-100  w-full flex items-center justify-center`}>
+                <h3 className="text-center text-sm">
+                © Copyright 2025. All Rights Reserved. Supported By DreamyBullXXX (Ambatukam)
+                </h3>
+            </div>
         </div>
     );
 }
