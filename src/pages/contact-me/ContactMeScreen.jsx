@@ -107,34 +107,33 @@ function InquiryComponent() {
       }
 
     return (
-        <div className={`flex flex-col items-center ${isMobile ? 'mx-3' : ''}`}>
+        <div className={`flex flex-col items-center`}>
             <h1 className="pt-10 text-2xl">Send Me A Message</h1>
             <div className="h-4"></div>
-            <div>
+            <div className={`${isMobile ? 'w-full max-w-96 px-4' : 'w-96'}`}>
                 <h1>Email</h1>
                 <input 
                     name="emailInput" 
-                    className={`my-2  border-2 ${emailFieldStatus.isError ?  'border-red-800' : 'border-gray-200'  } w-96 h-12 rounded-xl px-2`}
+                    className={`my-2 border-2 ${emailFieldStatus.isError ? 'border-red-800' : 'border-gray-200'} w-full h-12 rounded-xl px-2`}
                     placeholder='Your Email'   
                     onChange={(e) => setEmailInput(e.target.value)}
                 />
                 { emailFieldStatus.isError ? <h1 className="self-start text-red-800 mx-4">{emailFieldStatus.message}</h1> : '' }
             </div>
-            <div>
-                
+            <div className={`${isMobile ? 'w-full max-w-96 px-4' : 'w-96'}`}>
             <h1>Name</h1>
                 <input 
                     name="nameInput" 
-                    className='my-2 border-2 border-gray-200 w-96 h-12 rounded-xl px-2' 
+                    className='my-2 border-2 border-gray-200 w-full h-12 rounded-xl px-2' 
                     placeholder='Your Name'
                     onChange={(e) => setNameInput(e.target.value)}
                 />
             </div>
-            <div>
+            <div className={`${isMobile ? 'w-full max-w-96 px-4' : 'w-96'}`}>
                 <h1>Message</h1>
                 <textarea
                     name="commentInput"
-                    className={`my-2 border-2 border-gray-200 w-96 h-52 rounded-xl px-2 py-2 resize-none align-top text-start whitespace-pre-wrap break-words`}
+                    className={`my-2 border-2 border-gray-200 w-full h-52 rounded-xl px-2 py-2 resize-none align-top text-start whitespace-pre-wrap break-words`}
                     placeholder="Your Message"
                     onChange={(e) => setMessageInput(e.target.value)}
                 />
