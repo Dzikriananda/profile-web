@@ -7,6 +7,7 @@ import axios from 'axios';
 import { createClient } from "@supabase/supabase-js";
 import Validator from '../../utils/Validator';
 import FieldStatus from '../../utils/FieldStatus';
+import AlertDialog from '../../components/AlertDialog';
 
 
 // const supaBase = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_ANON_KEY);
@@ -140,7 +141,8 @@ function InquiryComponent() {
             </div>
             {
                 (status == Status.LOADING) ? <LoadingComponent/> : 
-                <button type="button"  onClick={() => onPressed()}  className='bg-blue-400 w-48 h-8 rounded-md my-3 text-white'>Submit</button>
+                <AlertDialog/>
+                // <button type="button"  onClick={() => onPressed()}  className='bg-blue-400 w-48 h-8 rounded-md my-3 text-white'>Submit</button>
             }
             <Dialog open={status==Status.SUCCESS}>
                 <div className='w-48 h-48 bg-black'></div>
@@ -170,14 +172,14 @@ function ContactComponent() {
             <h1 className="pt-10 text-2xl">Contact Detail</h1>
             <div className="h-4"></div>
             <div className="my-3 bg-blue-100 p-5 w-[360px] h-24 rounded-xl flex">
-                <SocialIcon url="https://github.com" href='https://id.linkedin.com/in/dzikri-ananda/' />
+                <SocialIcon url="https://github.com" href='https://github.com/Dzikriananda/' />
                 <div className='mx-4'>
                     <h1>Github</h1>
                     <h1 className='text-sm'>github.com/Dzikriananda/</h1>
                 </div>
             </div>
             <div className="my-3 bg-blue-100 p-5 w-[360px] h-24 rounded-xl flex">
-                <SocialIcon url="https://instagram.com" href='https://id.linkedin.com/in/dzikri-ananda/'/>
+                <SocialIcon url="https://instagram.com" href='https://www.instagram.com/dzikry.ananda/'/>
                 <div className='mx-4'>
                     <h1>Instagram</h1>
                     <h1 className='text-sm'>@dzikri.ananda</h1>
@@ -191,7 +193,7 @@ function ContactComponent() {
                 </div>
             </div>
             <div className="my-3 bg-blue-100 p-5 w-[360px] h-24 rounded-xl flex">
-                <SocialIcon url="https://mail.google.com" href='https://id.linkedin.com/in/dzikri-ananda/'/>
+                <SocialIcon url="https://mail.google.com" href='https://mail.google.com/mail/u/0/#inbox'/>
                 <div className='mx-4'>
                     <h1>Gmail</h1>
                     <h1 className='text-sm'>Dzikry.785@gmail.com</h1>

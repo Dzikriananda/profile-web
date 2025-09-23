@@ -56,8 +56,8 @@ const NavBar = () => {
               </div> :
               <div className='flex-1'></div>
             }
-            <SocialIcon url="https://github.com" href='https://id.linkedin.com/in/dzikri-ananda/' bgColor='none'/>
-            <SocialIcon url="https://instagram.com" href='https://id.linkedin.com/in/dzikri-ananda/' bgColor='none'/>
+            <SocialIcon url="https://github.com" href='https://github.com/Dzikriananda/' bgColor='none'/>
+            <SocialIcon url="https://instagram.com" href='https://www.instagram.com/dzikry.ananda/' bgColor='none'/>
             <SocialIcon url="https://linkedin.com" href='https://id.linkedin.com/in/dzikri-ananda/' bgColor='none'/>
             {(isMobile) ? 
              <div className='ml-5'>
