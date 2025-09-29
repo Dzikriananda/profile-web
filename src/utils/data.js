@@ -1,11 +1,36 @@
 // name, techStack, date, role, apkUrl, repoUrl, description, features, techUsed,imgPath
 import PortfolioDetail from "../models/PortfolioDetail"
-import calorieGuruImg1 from '../assets/images/portofolio-1/porto-1-1.png';
-import calorieGuruImg2 from '../assets/images/portofolio-1/porto-1-2.png';
-import calorieGuruImg3 from '../assets/images/portofolio-1/porto-1-3.png';
-import calorieGuruImg4 from '../assets/images/portofolio-1/porto-1-4.png';
-import calorieGuruImg5 from '../assets/images/portofolio-1/porto-1-5.png';
-import calorieGuruImg6 from '../assets/images/portofolio-1/porto-1-6.png';
+import calorieGuruImg1 from '../assets/images/portofolio-1/1.webp';
+import calorieGuruImg2 from '../assets/images/portofolio-1/2.webp';
+import calorieGuruImg3 from '../assets/images/portofolio-1/3.webp';
+import calorieGuruImg4 from '../assets/images/portofolio-1/4.webp';
+import calorieGuruImg5 from '../assets/images/portofolio-1/5.webp';
+import calorieGuruImg6 from '../assets/images/portofolio-1/6.webp';
+import calorieGuruImg7 from '../assets/images/portofolio-1/7.webp';
+import calorieGuruImg8 from '../assets/images/portofolio-1/8.webp';
+import calorieGuruImg9 from '../assets/images/portofolio-1/9.webp';
+import calorieGuruImg10 from '../assets/images/portofolio-1/10.webp';
+import calorieGuruImg11 from '../assets/images/portofolio-1/11.webp';
+import calorieGuruImg12 from '../assets/images/portofolio-1/12.webp';
+import calorieGuruImg13 from '../assets/images/portofolio-1/13.webp';
+import calorieGuruImg14 from '../assets/images/portofolio-1/14.webp';
+import calorieGuruImg15 from '../assets/images/portofolio-1/15.webp';
+import calorieGuruImg16 from '../assets/images/portofolio-1/16.webp';
+import calorieGuruImg17 from '../assets/images/portofolio-1/17.webp';
+import calorieGuruImg18 from '../assets/images/portofolio-1/18.webp';
+import calorieGuruImg19 from '../assets/images/portofolio-1/19.webp';
+import calorieGuruImg20 from '../assets/images/portofolio-1/20.webp';
+import calorieGuruImg21 from '../assets/images/portofolio-1/21.webp';
+import calorieGuruImg22 from '../assets/images/portofolio-1/22.webp';
+import calorieGuruImg23 from '../assets/images/portofolio-1/23.webp';
+import calorieGuruImg24 from '../assets/images/portofolio-1/24.webp';
+import calorieGuruImg25 from '../assets/images/portofolio-1/25.webp';
+import calorieGuruImg26 from '../assets/images/portofolio-1/26.webp';
+import calorieGuruImg27 from '../assets/images/portofolio-1/27.webp';
+import calorieGuruImg28 from '../assets/images/portofolio-1/28.webp';
+import calorieGuruImg29 from '../assets/images/portofolio-1/29.webp';
+import calorieGuruImg30 from '../assets/images/portofolio-1/30.webp';
+
 
 import birdGuard1 from '../assets/images/portofolio-2/1.webp';
 import birdGuard2 from '../assets/images/portofolio-2/2.webp';
@@ -257,9 +282,41 @@ const calorieGuruDetail = new PortfolioDetail(
           "RESTful API architecture for other APIs.",
         ],
       },],
-    [calorieGuruImg1,calorieGuruImg2,calorieGuruImg3,calorieGuruImg4,calorieGuruImg5,calorieGuruImg6],
-    1,
-    1,
+    [calorieGuruImg1,
+      calorieGuruImg2,
+      calorieGuruImg3,
+      calorieGuruImg4,
+      calorieGuruImg5,
+      calorieGuruImg6,
+      calorieGuruImg7,
+      calorieGuruImg8,
+      calorieGuruImg9,
+      calorieGuruImg10,
+      calorieGuruImg11,
+      calorieGuruImg12,
+      calorieGuruImg13,
+      calorieGuruImg14,
+      calorieGuruImg15,
+      calorieGuruImg29,
+      calorieGuruImg30,
+      calorieGuruImg16,
+      calorieGuruImg17,
+      calorieGuruImg18,
+      calorieGuruImg19,
+      calorieGuruImg20,
+      calorieGuruImg21,
+      calorieGuruImg22,
+      calorieGuruImg23,
+      calorieGuruImg24,
+      calorieGuruImg25,
+      calorieGuruImg26,
+      calorieGuruImg27,
+      calorieGuruImg28,
+    
+
+    ],
+    3,
+    3,
     null
 );
 

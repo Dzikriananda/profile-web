@@ -21,8 +21,8 @@ function PortofolioScreen() {
 
   const portfolioItems = [
     { id: "suwlit-mobile-game",image: PortofolioSuwlit, name: "Suwlit Mobile Game (Java Spring Boot & Kotlin)" , hasData: true},
-    { id: "bird-guard-mobile-app",image: PortofolioBirdGuard, name: "Bird Guard Mobile App (Flutter)" ,hasData : true},
     { id: "calorie-guru-mobile-app",image: PortofolioCalorieGuru, name: "Calorie Guru Mobile App (Flutter & Firebase)", hasData : true},
+    { id: "bird-guard-mobile-app",image: PortofolioBirdGuard, name: "Bird Guard Mobile App (Flutter)" ,hasData : true},
     { id: "sentiment-dashboard-be",image: PortofolioSentimentDashboard, name: "Backend for Playstore App Sentiment Dashboard (Java Spring Boot)",hasData : true},
     { id: "personal-flutter-site",image: PortofolioPersonalFlutterSite, name: "Personal Website (Flutter Web)",hasData : false}
   ];
