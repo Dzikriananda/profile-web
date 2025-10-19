@@ -233,24 +233,23 @@ function ServicesCard() {
             duration: 0.5,
             delay: index * 0.1, // optional: nice stagger effect
           }}
-          viewport={{ once: false, amount: 0.2 }} 
-          className={`w-full md:mt-0 mt-7 rounded-lg bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 bg-[length:200%_200%] p-2 animate-gradient-border ${
-            isMobile ? '' : ''
-          }`}
-        >
-          <div className="rounded-md bg-white p-6 h-full">
-            {service.icon}
-            <h1 className="xl:text-xl lg:text-lg md:text-base sm:text-sm font-semibold mt-2">{service.title}</h1>
-            <p className={`text-justify mt-2 xl:text-xl lg:text-lg md:text-base sm:text-sm text-xs`}>
-              <BoldKeywords text={service.description} keywords={skills} />
-            </p>
-            <div className="flex justify-center mt-4 flex-wrap ">
-              {service.logos.map((logo, i) => (
-                <img key={i} src={logo} className="h-16 mx-2 my-1" />
-              ))}
-            </div>
+          viewport={{
+            once: index < services.length - 1, 
+            amount: 0.2
+          }}
+          className={`w-full md:mt-0 mt-7 rounded-lg bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 bg-[length:200%_200%] p-2 animate-gradient-border`}>
+            <div className="rounded-md bg-white p-6 h-full">
+              {service.icon}
+              <h1 className="xl:text-xl lg:text-lg md:text-base sm:text-sm font-semibold mt-2">{service.title}</h1>
+              <p className={`text-justify mt-2 xl:text-xl lg:text-lg md:text-base sm:text-sm text-xs`}>
+                <BoldKeywords text={service.description} keywords={skills} />
+              </p>
+              <div className="flex justify-center mt-4 flex-wrap ">
+                {service.logos.map((logo, i) => (
+                  <img key={i} src={logo} className="h-16 mx-2 my-1" />
+                ))}
+              </div>
           </div>
-         
         </motion.div>
       ))}
     </div>
