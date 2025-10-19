@@ -201,7 +201,7 @@ const calorieGuruDetail = new PortfolioDetail(
     "Flutter, Firebase",
     "August-December 2023",
     "Fullstack Developer (Mobile and Backend)",
-    "https://drive.google.com/file/d/1FKilu2HHDswlS2cH5HQsZkLfPwrfmWjt/view",
+    "https://drive.google.com/drive/folders/1g2Lej8e3DLFj2-tKX0KNgF9xFogbKKHq?usp=drive_link",
     [new RepoUrl("https://github.com/Dzikriananda/CalorieGuru-MobileApp","Mobile App")],
     "Welcome to Calorie Guru - your go-to application for tracking and managing your daily calorie intake! Calorie Guru is designed to help users easily log their daily calorie consumption, providing a convenient way to monitor their diet and make informed decisions about their nutrition. This app simplifies the process of keeping track of calories consumed throughout the day.",
     [
@@ -216,7 +216,12 @@ const calorieGuruDetail = new PortfolioDetail(
               {
                 title: "Search Calorie Information",
                 description:
-                  "Utilize machine learning-based food recognition to search and log the calorie count of various food items and burned calories from many sports.",
+                  "Utilize machine learning-based food recognition to search and log the calorie count of various food items",
+              },
+              {
+                title: "Search Burned Calorie For An Activity Information",
+                description:
+                  "Utilize machine learning-based  recognition to search and log the burned calories from many sports and activities.",
               },
               {
                 title: "View Daily Intake",

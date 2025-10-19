@@ -42,7 +42,7 @@ function ResumeItems() {
                     <h3 className="vertical-timeline-element-title">Officer Development Program (ODP) IT - Bank Syariah Indonesia</h3>
                     <h4 className="vertical-timeline-element-subtitle">Jakarta, Indonesia</h4>
                     <p>
-                        Mobile App Developer, Frontend Developer, Backend Developer, IT & Program Analyst
+                        Mobile App Developer, Frontend Developer, Backend Developer, IT & Program Analyst, Core Banking IT QA Tester
                     </p>
                 </VerticalTimelineElement>
                 <VerticalTimelineElement
