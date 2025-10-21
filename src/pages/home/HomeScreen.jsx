@@ -58,7 +58,7 @@ function HomeScreen() {
   // bg-gradient-to-r from-blue-500 to-cyan-500
   return (
     <div style={{ backgroundImage: `url(${bgImage})` }} className="bg-cover bg-center w-full pt-20">
-    {/* <div className=" sm:bg-red-500 md:bg-yellow-300 lg:bg-gray-600 xl:bg-blue-500 2xl:bg-slate-950 " > */}
+    {/* <div className=" sm:bg-red-500 md:bg-yellow-300 lg:bg-gray-600 xl:bg-blue-500 2xl:bg-slate-950 " >   */}
       <div className='2xl:mx-60 xl:mx-28 lg:mx-30 md:mx-30 sm:mx-20 '>
         {(!isMobile) ? 
         <div className='bg-transparent'>
@@ -69,7 +69,7 @@ function HomeScreen() {
                   Hi, I'm Dzikri Ananda
                 </h1>
                 <TypingCharacter/>
-                <p className="max-w-xl text-justify lg:text-lg md:text-base sm:text-sm text-xs "> 
+                <p className="lg:max-w-xl md:mr-14 text-justify lg:text-lg md:text-base sm:text-sm text-xs "> 
                 Passionate and self-driven Fullstack application developer with a strong desire to contribute my skills to diverse projects. My background spans mobile, web, and backend development, and I am committed to staying abreast of the latest industry trends through continuous learning and skill enhancement.
                 </p>
               </div>
@@ -154,7 +154,7 @@ function TypingCharacter() {
   return (
     <div className={`${isMobile ? '' : ''}`}>
       <TypeAnimation
-        className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl  ${isMobile ? 'mx-8' : ''}`}
+        className={`text-xl sm:text-2xl md:text-2xl lg:text-4xl xl:text-5xl  ${isMobile ? 'mx-8' : ''}`}
         sequence={[
           // Same substring at the start will only be typed out once, initially
           'Fullstack Developer',
@@ -199,26 +199,7 @@ function ServicesCard() {
 
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2, // delay between children
-      },
-    },
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 40 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: { type: "spring", stiffness: 50, damping: 15 },
-    },
-  };
-
-  
+   
 
   return (
     <div
@@ -231,7 +212,7 @@ function ServicesCard() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{
             duration: 0.5,
-            delay: index * 0.1, // optional: nice stagger effect
+            delay: index * 0.1, 
           }}
           viewport={{
             once: index < services.length - 1, 

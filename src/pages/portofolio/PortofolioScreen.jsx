@@ -9,7 +9,7 @@ import { DeviceContext } from '../../context/DeviceContext';
 import { useNavigate } from "react-router";
 import { ScreenContext } from "../../context/ScreenContext.";
 import { portfolioDetailData } from '../../utils/data';
-import flutterLogo from '../../assets/images/flutter-Logo.png'
+import bgImage from '../../assets/images/bg.jpg'
 
 function PortofolioScreen() {
   const { isMobile } = useContext(DeviceContext);
@@ -28,7 +28,7 @@ function PortofolioScreen() {
   ];
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div style={{ backgroundImage: `url(${bgImage})` }} className="flex flex-col min-h-screen bg-cover bg-center">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mt-8 flex-grow px-4">
         {portfolioItems.map((item, i) => (
           <PortofolioCard key={i} {...item} />

@@ -14,9 +14,10 @@ export function PortofolioDetailScreen() {
   
 
   return (
-    <div className="">
+    <div>
+    {/* <div className="bg-black sm:bg-white md:bg-blue-300 lg:bg-red-300 xl:bg-green-800 2xl:bg-red-950"> */}
       <ResponsiveView data={data} />
-      <div className="xl:px-[255px] lg:px-[130px] px-9">
+      <div className=" xl:px-[120px] 2xl:px-[255px] px-10">
         <h1 className="mt-10 text-2xl font-bold">Description</h1> 
         <p className="text-justify">{data.description}</p> 
         <h1 className="mt-10 text-2xl font-bold">Features</h1> 
@@ -35,9 +36,9 @@ export function PortofolioDetailScreen() {
 
 function ResponsiveView({ data }) {
   return (
-    <div className="flex flex-col lg:flex-row justify-center  mt-8 px-6 lg:px-[255px]">
+    <div className="flex flex-col lg:flex-row justify-center  mt-8  xl:px-[120px] 2xl:px-[255px] px-10 ">
       {/* Carousel */}
-      <div className="lg:w-[800px] w-full self-center">
+      <div className=" md:max-w-[600px] lg:max-w-[600px] xl:max-w-[800px] w-full self-center">
         <Carousel
           data={data.imgPath}
           slidesToShow={data.slideToScroll}
@@ -210,18 +211,22 @@ function VideoPlayer(props) {
 }
 
 function Carousel({ data, slidesToShow, slidesToScroll }) {
-  const dots = slidesToShow
-  const length = Object.keys(data).length
-  // console.log(`jumlah dot ${dotNumber} jumlah slides ${data} jumlah slidestoscroll ${slidesToScroll}`)
-  // console.log(`jumlah dot ${dotNumber} jumlah slides ${data} jumlah slidestoscroll ${slidesToScroll}`)
-  const dotsSum = length/dots
-  
+
+  const bp = useBreakpoint();
+  const slideToShowData = (() => {
+    if (slidesToShow === 1) return 1;
+    if (bp === 'xl') return 3;
+    if (bp === 'lg') return 2;
+    return 1; // default for smaller
+  })();  
+
+ 
 
   const settings = {
     dots: true,
     infinite: false,
     speed: 500,
-    slidesToShow: slidesToShow,
+    slidesToShow: slideToShowData,
     slidesToScroll: slidesToScroll,
     dotsClass: `custom-dots`,
     appendDots: dots => (
@@ -229,30 +234,36 @@ function Carousel({ data, slidesToShow, slidesToScroll }) {
         <ul>{dots}</ul>
       </div>
     ),
-    responsive: [
-      {
-        breakpoint: 1024, // tablets
-        settings: { slidesToShow: 2, slidesToScroll: 1 },
-      },
-      {
-        breakpoint: 640, // mobile
-        settings: { slidesToShow: 1, slidesToScroll: 1 },
-      },
+      responsive: [
+        
+        {
+          breakpoint: 1024, // tablets
+          settings: { slidesToShow: 2, slidesToScroll: 1 },
+        },
+        {
+          breakpoint: 640, // mobile
+          settings: { slidesToShow: 1, slidesToScroll: 1 },
+        },
     ],
   };
 
+  // Kalau slidetoshow = 3 maka w-900, kalau 2 maka w-600 dan kalau 1 saja maka w-300
   return (
-    <div className="h-auto mt-9 lg:mt-0 ">
+    <div className="w-full  max-w-[900px] overflow-hidden">
       <Slider {...settings}>
-        {data.map((imgPath, index) => (
-          <img
-            key={index}
-            src={imgPath}
-            alt={`Slide ${index}`}
-            className="px-2"
-          />
-        ))}
-      </Slider>
+      {data.map((src, i) => (
+        <div key={i} className="px-2">
+          <div className="flex justify-center items-center ">
+            <img
+              src={src}
+              alt={`Slide ${i}`}
+              className="max-h-[550px] w-auto object-contain"
+            />
+      </div>
+    </div>
+  ))}
+</Slider>
+
     </div>
   );
 }
@@ -294,3 +305,26 @@ const Features = ({ data }) => {
     </div>
   );
 };
+
+function useBreakpoint() {
+  const [breakpoint, setBreakpoint] = useState(getBreakpoint());
+
+  function getBreakpoint() {
+    const w = window.innerWidth;
+    if (w >= 1280) return 'xl';
+    if (w >= 1024) return 'lg';
+    if (w >= 768) return 'md';
+    if (w >= 640) return 'sm';
+    return 'xs';
+  }
+
+  useEffect(() => {
+    function onResize() {
+      setBreakpoint(getBreakpoint());
+    }
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+
+  return breakpoint;
+}

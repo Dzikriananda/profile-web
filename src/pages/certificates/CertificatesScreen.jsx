@@ -8,7 +8,7 @@ import androidIntermediateCertificate from '../../assets/images/certificates/ser
 import flutterBeginnerCertificate from '../../assets/images/certificates/sertif-flutter-pemula.jpg';
 import flutterFundamentalCertificate from '../../assets/images/certificates/sertif-fundamental-flutter.jpg';
 import androidFundamentalCertificate from '../../assets/images/certificates/sertif-fundamental-android.jpg';
-
+import bgImage from '../../assets/images/bg.jpg'
 
 import { useState,useEffect, useContext,Button } from 'react'
 import { DeviceContext } from '../../context/DeviceContext';
@@ -92,7 +92,7 @@ function CertificatesScreen(){
   const {isMobile} = useContext(DeviceContext);
   
   return(
-    <div>
+    <div style={{ backgroundImage: `url(${bgImage})` }} className='bg-cover bg-center w-full'>
       <div className='flex max-w-7xl  justify-center flex-wrap mx-auto '>
           {certificates.map((cert, index) => (
             <CertificateCard

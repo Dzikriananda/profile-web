@@ -8,6 +8,7 @@ import { createClient } from "@supabase/supabase-js";
 import Validator from '../../utils/Validator';
 import FieldStatus from '../../utils/FieldStatus';
 import AlertDialog from '../../components/AlertDialog';
+import bgImage from '../../assets/images/bg.jpg'
 
 
 // const supaBase = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_ANON_KEY);
@@ -24,7 +25,7 @@ function ContactMeScreen() {
 
 function ResponsiveWidget() {
     return (
-      <div>
+      <div  style={{ backgroundImage: `url(${bgImage})` }} className='bg-cover bg-center'>
         <div className="block md:hidden"><MobileScreen/></div>
         <div className="hidden md:block lg:hidden"><MobileScreen/></div>
         <div className="hidden lg:block xl:hidden"><DesktopScreen/></div>
@@ -176,28 +177,28 @@ function ContactComponent() {
         <div className="flex flex-col items-center">
             <h1 className="pt-10 text-2xl">Contact Detail</h1>
             <div className="h-4"></div>
-            <div className="my-3 bg-blue-100 p-5 w-[360px] h-24 rounded-xl flex">
+            <div className="my-3 bg-blue-100 p-5 w-[360px] h-24 rounded-xl flex shadow-xl">
                 <SocialIcon url="https://github.com" href='https://github.com/Dzikriananda/' />
                 <div className='mx-4'>
                     <h1>Github</h1>
                     <h1 className='text-sm'>github.com/Dzikriananda/</h1>
                 </div>
             </div>
-            <div className="my-3 bg-blue-100 p-5 w-[360px] h-24 rounded-xl flex">
+            <div className="my-3 bg-blue-100 p-5 w-[360px] h-24 rounded-xl flex shadow-xl">
                 <SocialIcon url="https://instagram.com" href='https://www.instagram.com/dzikry.ananda/'/>
                 <div className='mx-4'>
                     <h1>Instagram</h1>
                     <h1 className='text-sm'>@dzikri.ananda</h1>
                 </div>
             </div>
-            <div className="my-3 bg-blue-100 p-5 w-[360px] h-24 rounded-xl flex">
+            <div className="my-3 bg-blue-100 p-5 w-[360px] h-24 rounded-xl flex shadow-xl">
                 <SocialIcon url="https://linkedin.com" href='https://id.linkedin.com/in/dzikri-ananda/'/>
                 <div className='mx-4'>
                     <h1>Linkedin</h1>
                     <h2 className='text-sm'>linkedin.com/in/dzikri-ananda/</h2>
                 </div>
             </div>
-            <div className="my-3 bg-blue-100 p-5 w-[360px] h-24 rounded-xl flex">
+            <div className="my-3 bg-blue-100 p-5 w-[360px] h-24 rounded-xl flex shadow-xl">
                 <SocialIcon url="https://mail.google.com" href='https://mail.google.com/mail/u/0/#inbox'/>
                 <div className='mx-4'>
                     <h1>Gmail</h1>
