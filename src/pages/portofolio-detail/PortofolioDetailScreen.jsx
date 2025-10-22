@@ -1,11 +1,10 @@
-import { useLocation,useParams } from "react-router";
+import { useParams } from "react-router";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import YouTube from "react-youtube";
-import { useState,useEffect } from "react";
+import { useState,useEffect,useRef } from "react";
 import { Dropdown, DropdownItem } from "flowbite-react";
-import { LogIn } from "lucide-react";
 import { portfolioDetailData } from '../../utils/data';
 
 export function PortofolioDetailScreen() {
@@ -35,14 +34,33 @@ export function PortofolioDetailScreen() {
 }
 
 function ResponsiveView({ data }) {
+  const bp = useBreakpoint();
+
+  const slideToShow = (() => {
+    if (data.slideToShow === 1) return 1;
+    if (bp === 'xl') return 3;
+    if (bp === 'lg') return 2;
+    return 1; // default for smaller
+  })();  
+
+  const dotsClass = (() => {
+    if (bp === 'xl') return 'custom-dots';
+    if (bp === 'lg') return 'custom-dots';
+    if(bp === 'md') return 'custom-dots';
+    if(bp === 'sm') return 'custom-dots';
+    return 'custom-dots-mobile';
+  })();
+
+
   return (
     <div className="flex flex-col lg:flex-row justify-center  mt-8  xl:px-[120px] 2xl:px-[255px] px-10 ">
       {/* Carousel */}
       <div className=" md:max-w-[600px] lg:max-w-[600px] xl:max-w-[800px] w-full self-center">
         <Carousel
           data={data.imgPath}
-          slidesToShow={data.slideToScroll}
+          slidesToShow={slideToShow}
           slidesToScroll={data.slideToScroll}
+          dotsClass={dotsClass}
         />
       </div>
 
@@ -210,25 +228,40 @@ function VideoPlayer(props) {
   }
 }
 
-function Carousel({ data, slidesToShow, slidesToScroll }) {
+function Carousel({ data, slidesToShow, slidesToScroll,dotsClass }) {
+  const [index, setIndex] = useState(0);
+  const sliderRef = useRef(null);
 
-  const bp = useBreakpoint();
-  const slideToShowData = (() => {
-    if (slidesToShow === 1) return 1;
-    if (bp === 'xl') return 3;
-    if (bp === 'lg') return 2;
-    return 1; // default for smaller
-  })();  
+  const next = () => {
+    if (sliderRef.current) {
+      sliderRef.current.slickNext();
+    }
+  };
 
- 
+  const prev = () => {
+    if (sliderRef.current) {
+      sliderRef.current.slickPrev();
+    }
+  };
+
+  const [useDots,setUseDots] = useState(true);
+
+  useEffect(() => {
+    if(dotsClass === 'custom-dots') {
+      setUseDots(true);
+    } else {
+      setUseDots(false);
+    }
+  },[dotsClass]);
 
   const settings = {
-    dots: true,
+    dots: useDots,
     infinite: false,
     speed: 500,
-    slidesToShow: slideToShowData,
+    slidesToShow: slidesToShow,
     slidesToScroll: slidesToScroll,
-    dotsClass: `custom-dots`,
+    dotsClass: dotsClass,
+    afterChange: (i) => setIndex(i),
     appendDots: dots => (
       <div>
         <ul>{dots}</ul>
@@ -250,19 +283,31 @@ function Carousel({ data, slidesToShow, slidesToScroll }) {
   // Kalau slidetoshow = 3 maka w-900, kalau 2 maka w-600 dan kalau 1 saja maka w-300
   return (
     <div className="w-full  max-w-[900px] overflow-hidden">
-      <Slider {...settings}>
-      {data.map((src, i) => (
-        <div key={i} className="px-2">
-          <div className="flex justify-center items-center ">
-            <img
-              src={src}
-              alt={`Slide ${i}`}
-              className="max-h-[550px] w-auto object-contain"
-            />
-      </div>
-    </div>
-  ))}
-</Slider>
+      <Slider ref={sliderRef} {...settings}>
+          {data.map((src, i) => (
+            <div key={i} className="px-2">
+              <div className="flex justify-center items-center ">
+                <img
+                  src={src}
+                  alt={`Slide ${i}`}
+                  className="max-h-[550px] w-auto object-contain"
+                />
+          </div>
+        </div>
+      ))}
+      </Slider>
+      {
+        (!useDots) ? 
+        <div className="flex items-center justify-center gap-6 text-lg font-semibold ">
+          <button onClick={prev} className="px-4 py-2 bg-gray-200 rounded-full">
+            ◀
+          </button>
+          <span>{index + 1} / {data.length}</span>
+          <button onClick={next} className="px-4 py-2 bg-gray-200 rounded-full">
+            ▶
+          </button>
+        </div> : null
+      }
 
     </div>
   );

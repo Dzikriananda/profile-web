@@ -3,7 +3,7 @@
 @tailwind utilities;
 /* Poppins Thin */
 /* In global.css */
-.custom-dots {
+  .custom-dots {
     @apply flex justify-center bg-white/30 max-w-[320px] rounded-full sm:mt-2 mt-3 mx-auto;
   }
   .custom-dots li {
@@ -21,10 +21,32 @@
     @apply bg-red-500;
   }
   
+  
+  .custom-dots-mobile {
+    @apply h-0;
+  }
+  .custom-dots-mobile li {
+    @apply inline-block;
+  }
+  .custom-dots-mobile li button {
+    @apply h-0;
+  }
+  
+  .custom-dots-mobile li.slick-active button {
+    @apply h-0;
+  }
+  
+  .custom-dots-mobile li button:hover {
+    @apply h-0;
+  }
+  
   /* margin untuk gambar */
   .slick-slide img {
     @apply border-[5px] border-white block mx-auto;
   }
+
+  
+
   
   
 @font-face {
