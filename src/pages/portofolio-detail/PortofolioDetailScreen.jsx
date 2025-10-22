@@ -6,6 +6,9 @@ import YouTube from "react-youtube";
 import { useState,useEffect,useRef } from "react";
 import { Dropdown, DropdownItem } from "flowbite-react";
 import { portfolioDetailData } from '../../utils/data';
+import { CircleChevronRight,CircleChevronLeft, ChevronLeftCircle, ChevronRightCircle } from "lucide-react";
+import bgImage from '../../assets/images/bg.jpg'
+
 
 export function PortofolioDetailScreen() {
   const {portfolioId} = useParams();
@@ -13,7 +16,7 @@ export function PortofolioDetailScreen() {
   
 
   return (
-    <div>
+    <div style={{ backgroundImage: `url(${bgImage})` }} className="bg-cover ">
     {/* <div className="bg-black sm:bg-white md:bg-blue-300 lg:bg-red-300 xl:bg-green-800 2xl:bg-red-950"> */}
       <ResponsiveView data={data} />
       <div className=" xl:px-[120px] 2xl:px-[255px] px-10">
@@ -46,14 +49,14 @@ function ResponsiveView({ data }) {
   const dotsClass = (() => {
     if (bp === 'xl') return 'custom-dots';
     if (bp === 'lg') return 'custom-dots';
-    if(bp === 'md') return 'custom-dots';
-    if(bp === 'sm') return 'custom-dots';
+    if(bp === 'md') return 'custom-dots-mobile';
+    if(bp === 'sm') return 'custom-dots-mobile';
     return 'custom-dots-mobile';
   })();
 
 
   return (
-    <div className="flex flex-col lg:flex-row justify-center  mt-8  xl:px-[120px] 2xl:px-[255px] px-10 ">
+    <div className="flex flex-col lg:flex-row justify-center  py-8  xl:px-[120px] 2xl:px-[255px] px-10 ">
       {/* Carousel */}
       <div className=" md:max-w-[600px] lg:max-w-[600px] xl:max-w-[800px] w-full self-center">
         <Carousel
@@ -282,10 +285,11 @@ function Carousel({ data, slidesToShow, slidesToScroll,dotsClass }) {
 
   // Kalau slidetoshow = 3 maka w-900, kalau 2 maka w-600 dan kalau 1 saja maka w-300
   return (
-    <div className="w-full  max-w-[900px] overflow-hidden">
+    <div>
+      <div className="w-full max-w-[900px] overflow-hidden">
       <Slider ref={sliderRef} {...settings}>
           {data.map((src, i) => (
-            <div key={i} className="px-2">
+            <div key={i} className="px-0">
               <div className="flex justify-center items-center ">
                 <img
                   src={src}
@@ -296,19 +300,34 @@ function Carousel({ data, slidesToShow, slidesToScroll,dotsClass }) {
         </div>
       ))}
       </Slider>
-      {
-        (!useDots) ? 
-        <div className="flex items-center justify-center gap-6 text-lg font-semibold ">
-          <button onClick={prev} className="px-4 py-2 bg-gray-200 rounded-full">
-            ◀
-          </button>
-          <span>{index + 1} / {data.length}</span>
-          <button onClick={next} className="px-4 py-2 bg-gray-200 rounded-full">
-            ▶
-          </button>
-        </div> : null
-      }
+    </div>
+    {
+      (!useDots) ? 
+      <div className="flex items-center justify-center gap-6 ">
+        {/* <button onClick={prev} className="px-4 py-2 bg-gray-200 rounded-full">
+          <ChevronLeftCircle/>
+        </button> */}
+        <ChevronLeftCircle onClick={prev} className="w-10 h-10"/>
+        {/* <span>{index + 1} / {data.length}</span> */}
+        <CounterPill current={index + 1} total={data.length}/>
+        {/* <button onClick={next} className="px-4 py-2 bg-gray-200 rounded-full">
+          <ChevronRightCircle/>
+        </button> */}
+        <ChevronRightCircle onClick={next} className="w-10 h-10"/>
 
+      </div> : null
+    }
+    </div>
+
+  );
+}
+
+function CounterPill({ current, total }) {
+  return (
+    <div className="bg-white/80 backdrop-blur-md shadow-[0_4px_12px_rgba(0,0,0,0.15)] rounded-full px-6 py-2 flex items-center justify-center">
+      <span className="text-gray-800 text-lg font-medium">
+        {current} / {total}
+      </span>
     </div>
   );
 }
@@ -356,6 +375,7 @@ function useBreakpoint() {
 
   function getBreakpoint() {
     const w = window.innerWidth;
+    console.log(w);
     if (w >= 1280) return 'xl';
     if (w >= 1024) return 'lg';
     if (w >= 768) return 'md';

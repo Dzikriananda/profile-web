@@ -3,8 +3,10 @@
 @tailwind utilities;
 /* Poppins Thin */
 /* In global.css */
+
+    /* sebelumnya max-w-[340px]  bg-white/30 */
   .custom-dots {
-    @apply flex justify-center bg-white/30 max-w-[320px] rounded-full sm:mt-2 mt-3 mx-auto;
+    @apply flex justify-center max-w-[360px] rounded-full sm:mt-2 mt-3 mx-auto;
   }
   .custom-dots li {
     @apply inline-block;
@@ -41,8 +43,9 @@
   }
   
   /* margin untuk gambar */
+  /* kalau bg putih, pakai border-white dan border-[5px] , namun krn skrg udh pakai bg image jadinya dihilangkan agar jangan ada margin putih2 */
   .slick-slide img {
-    @apply border-[5px] border-white block mx-auto;
+    @apply px-[5px]  block mx-auto;
   }
 
   
