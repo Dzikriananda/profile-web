@@ -6,7 +6,7 @@ import YouTube from "react-youtube";
 import { useState,useEffect,useRef } from "react";
 import { Dropdown, DropdownItem } from "flowbite-react";
 import { portfolioDetailData } from '../../utils/data';
-import { CircleChevronRight,CircleChevronLeft, ChevronLeftCircle, ChevronRightCircle } from "lucide-react";
+import { ChevronLeftCircle, ChevronRightCircle,ZoomIn,RotateCcw,X } from "lucide-react";
 import bgImage from '../../assets/images/bg.jpg'
 
 
@@ -59,6 +59,7 @@ function ResponsiveView({ data }) {
     <div className="flex flex-col lg:flex-row justify-center  py-8  xl:px-[120px] 2xl:px-[255px] px-10 ">
       {/* Carousel */}
       <div className=" md:max-w-[600px] lg:max-w-[600px] xl:max-w-[800px] w-full self-center">
+
         <Carousel
           data={data.imgPath}
           slidesToShow={slideToShow}
@@ -233,6 +234,15 @@ function VideoPlayer(props) {
 
 function Carousel({ data, slidesToShow, slidesToScroll,dotsClass }) {
   const [index, setIndex] = useState(0);
+  const [open, setOpen] = useState(false); // dialog open or closed
+  const handleZoom = () => {
+    setOpen(true);
+  };
+
+  const closeZoom = () => {
+    setOpen(false);
+  }
+
   const sliderRef = useRef(null);
 
   const next = () => {
@@ -290,17 +300,28 @@ function Carousel({ data, slidesToShow, slidesToScroll,dotsClass }) {
       <Slider ref={sliderRef} {...settings}>
           {data.map((src, i) => (
             <div key={i} className="px-0">
-              <div className="flex justify-center items-center ">
-                <img
-                  src={src}
-                  alt={`Slide ${i}`}
-                  className="max-h-[550px] w-auto object-contain"
-                />
-          </div>
-        </div>
+              <div className="relative flex justify-center items-center ">
+                  <img
+                    src={src}
+                    alt={`Slide ${i}`}
+                    className="max-h-[550px] w-auto object-contain"
+                  />
+                  {
+                    (!useDots) ? 
+                    <button
+                      onClick={() => handleZoom()}
+                      className="absolute top-2 right-2 bg-white/80 hover:bg-white rounded-full p-2 shadow-md transition"
+                    >
+                      <ZoomIn className="w-5 h-5 text-gray-700" />
+                    </button> : null
+                  }
+              </div>
+            </div>
       ))}
       </Slider>
     </div>
+    <ZoomedImage imageSrc={data[index]} isOpen={open} onClose={closeZoom}/>
+    
     {
       (!useDots) ? 
       <div className="flex items-center justify-center gap-6 ">
@@ -319,6 +340,49 @@ function Carousel({ data, slidesToShow, slidesToScroll,dotsClass }) {
     }
     </div>
 
+  );
+}
+
+
+function ZoomedImage({ imageSrc, isOpen, onClose }) {
+  const [landscape, setLandscape] = useState(false);
+
+  if (!isOpen) return null;
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
+      onClick={onClose}
+    >
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="relative flex items-center justify-center w-full max-w-4xl aspect-[16/9]"
+      >
+        <img
+          src={imageSrc}
+          alt="Zoomed"
+          className={`transition-transform duration-500 ease-in-out object-contain ${
+            landscape
+              ? "rotate-90 max-w-[90vh] max-h-screen" // landscape view
+              : "max-w-screen max-h-[90vh]"             // normal view
+          }`}
+        />
+
+        <button
+          onClick={onClose}
+          className="absolute top-3 right-3 bg-white/80 hover:bg-white rounded-full p-2 shadow-md"
+        >
+          <X className="w-5 h-5 text-gray-700" />
+        </button>
+
+        <button
+          onClick={() => setLandscape(!landscape)}
+          className="absolute bottom-4 right-4 bg-white/80 hover:bg-white rounded-full p-2 shadow-md"
+        >
+          <RotateCcw className="w-5 h-5 text-gray-700" />
+        </button>
+      </div>
+    </div>
   );
 }
 
