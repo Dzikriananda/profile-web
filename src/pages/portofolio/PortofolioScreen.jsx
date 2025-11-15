@@ -3,14 +3,13 @@ import PortofolioBirdGuard from '../../assets/images/portofolio-2.png';
 import PortofolioSentimentDashboard from '../../assets/images/portofolio-3.webp';
 import PortofolioPersonalFlutterSite from '../../assets/images/portofolio-4.png';
 import PortofolioSuwlit from '../../assets/images/portofolio-suwlit.png';
-
+import PortofolioSync2Play from  '../../assets/images/portofolio-sync2play.webp'
 import { useState, useEffect, useContext } from 'react';
 import { DeviceContext } from '../../context/DeviceContext';
 import { useNavigate } from "react-router";
 import { ScreenContext } from "../../context/ScreenContext.";
 import { portfolioDetailData } from '../../utils/data';
 import bgImage from '../../assets/images/bg.jpg'
-
 function PortofolioScreen() {
   const { isMobile } = useContext(DeviceContext);
   const [showNavBar, setShowNavBar] = useContext(ScreenContext);
@@ -22,6 +21,7 @@ function PortofolioScreen() {
   const portfolioItems = [
     { id: "suwlit-mobile-game",image: PortofolioSuwlit, name: "Suwlit Mobile Game (Java Spring Boot & Kotlin)" , hasData: true},
     { id: "calorie-guru-mobile-app",image: PortofolioCalorieGuru, name: "Calorie Guru Mobile App (Flutter & Firebase)", hasData : true},
+    { id: "sync2play",image: PortofolioSync2Play, name: "Sync2Play (React & Express) ", hasData : true},
     { id: "bird-guard-mobile-app",image: PortofolioBirdGuard, name: "Bird Guard Mobile App (Flutter)" ,hasData : true},
     { id: "sentiment-dashboard-be",image: PortofolioSentimentDashboard, name: "Backend for Playstore App Sentiment Dashboard (Java Spring Boot)",hasData : true},
     { id: "personal-flutter-site",image: PortofolioPersonalFlutterSite, name: "Personal Website (Flutter Web)",hasData : false}

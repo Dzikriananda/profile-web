@@ -70,7 +70,104 @@ import suwlit12 from '../assets/images/portofolio-4/12.webp';
 import suwlit13 from '../assets/images/portofolio-4/13.webp';
 import suwlit14 from '../assets/images/portofolio-4/14.webp';
 import suwlit15 from '../assets/images/portofolio-4/15.webp';
+import sync2play1 from '../assets/images/portofolio-5/1.webp';
+import sync2play2 from '../assets/images/portofolio-5/2.webp';
+import sync2play3 from '../assets/images/portofolio-5/3.webp';
+import sync2play4 from '../assets/images/portofolio-5/4.webp';
+import sync2play5 from '../assets/images/portofolio-5/5.webp';
+import sync2play6 from '../assets/images/portofolio-5/6.webp';
+import sync2play7 from '../assets/images/portofolio-5/7.webp';
+import sync2play8 from '../assets/images/portofolio-5/8.webp';
+import sync2play9 from '../assets/images/portofolio-5/9.webp';
+import sync2play10 from '../assets/images/portofolio-5/10.webp';
+import sync2play11 from '../assets/images/portofolio-5/11.webp';
+
 import RepoUrl from "../models/RepoUrl";
+
+
+const sync2PlayDetail = new PortfolioDetail(
+  "sync2play",
+  "Sync2Play",
+  "React, Express",
+  "October 2025",
+  "Fullstack Developer (Frontend and Backend)",
+  null,
+  [
+    new RepoUrl("https://github.com/Dzikriananda/Sync2Play-Backend","Backend"),
+    new RepoUrl("https://github.com/Dzikriananda/Sync2Play-Frontend","Frontend")
+  ],
+  "Welcome to Sync2Play — your go-to application for enjoying music together across multiple devices! Sync2Play allows users to play the same music at nearly the same time on different devices, creating a shared listening experience no matter where you are. Sync2Play ensures smooth coordination so everyone stays in rhythm. Perfect for virtual hangouts, workouts, or group jam sessions — all connected by the same beat.",
+  [
+    {
+      category: "Synchronized Playback",
+      items: [
+        {
+          "title": "Play Music in Sync",
+          "description": "Experience near-synchronized playback across multiple devices, keeping everyone within roughly 100 ms of each other."
+        },
+        {
+          "title": "Host and Join Sessions",
+          "description": "Start a session as a host or join one with a unique session code to enjoy music together in real time."
+        },
+        {
+          "title": "Cross-Platform Support",
+          "description": "Sync music playback seamlessly across Android, iOS, and web platforms."
+        },
+        {
+          "title": "Latency Adjustment",
+          "description": "Automatically adjusts playback timing between devices to minimize perceived delay and maintain smooth listening."
+        }
+      ]
+    },
+    {
+      "category": "Music Management",
+      "items": [
+        {
+          "title": "Multi-Source Playback",
+          "description": "Play songs from multiple sources — users can upload MP3 files or use YouTube links to enjoy synced playback."
+        },
+        {
+          "title": "Real-Time Track Updates",
+          "description": "Whenever the host play or pause, all connected devices update automatically to stay aligned."
+        }
+      ]
+    },
+  ],
+  [
+    {
+      "category": "Frontend",
+      "items": [
+        "React.js for the user interface.",
+        "HTTPS protocol for secure communication.",
+        "Custom domain connected to a deployed Vercel instance."
+      ]
+    },
+    {
+      "category": "Backend",
+      "items": [
+        "Express.js for backend API development.",
+        "HTTPS protocol for secure data transmission.",
+        "Deployed inside a Docker container on a VPS environment."
+      ]
+    }
+  ],
+  [
+    sync2play1,
+    sync2play2,
+    sync2play3,
+    sync2play4,
+    sync2play5,
+    sync2play6,
+    sync2play7,
+    sync2play8,
+    sync2play9,
+    sync2play10,
+    sync2play11,
+  ],
+  1,
+  1,
+  null
+);
 
 const suwtlitAppDetail = new PortfolioDetail(
   "suwlit-mobile-game",
@@ -515,5 +612,6 @@ export const portfolioDetailData = {
   "suwlit-mobile-game" : suwtlitAppDetail,
   "calorie-guru-mobile-app" : calorieGuruDetail,
   "bird-guard-mobile-app" : birdGuardDetail,
-  "sentiment-dashboard-be" : sentimentDashboardBe
+  "sentiment-dashboard-be" : sentimentDashboardBe,
+  "sync2play" : sync2PlayDetail
 }
