@@ -61,7 +61,7 @@ function ResponsiveView({ data }) {
       <div className=" md:max-w-[600px] lg:max-w-[600px] xl:max-w-[800px] w-full self-center">
 
         <Carousel
-          data={data.imgPath}
+          data={data.image}
           slidesToShow={slideToShow}
           slidesToScroll={data.slideToScroll}
           dotsClass={dotsClass}
@@ -298,11 +298,11 @@ function Carousel({ data, slidesToShow, slidesToScroll,dotsClass }) {
     <div>
       <div className="w-full max-w-[900px] overflow-hidden">
       <Slider ref={sliderRef} {...settings}>
-          {data.map((src, i) => (
+          {data.map((item, i) => (
             <div key={i} className="px-0">
               <div className="relative flex justify-center items-center ">
                   <img
-                    src={src}
+                    src={item.src}
                     alt={`Slide ${i}`}
                     className="max-h-[550px] w-auto object-contain"
                   />
@@ -316,11 +316,12 @@ function Carousel({ data, slidesToShow, slidesToScroll,dotsClass }) {
                     </button> : null
                   }
               </div>
+              <h2 className="text-center mt-1 mb-1">{item.title}</h2>
             </div>
       ))}
       </Slider>
     </div>
-    <ZoomedImage imageSrc={data[index]} isOpen={open} onClose={closeZoom}/>
+    <ZoomedImage imageSrc={data[index].src} isOpen={open} onClose={closeZoom}/>
     
     {
       (!useDots) ? 

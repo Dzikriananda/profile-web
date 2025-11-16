@@ -1,5 +1,4 @@
 // name, techStack, date, role, apkUrl, repoUrl, description, features, techUsed,imgPath
-import PortfolioDetail from "../models/PortfolioDetail"
 import calorieGuruImg1 from '../assets/images/portofolio-1/1.webp';
 import calorieGuruImg2 from '../assets/images/portofolio-1/2.webp';
 import calorieGuruImg3 from '../assets/images/portofolio-1/3.webp';
@@ -81,9 +80,9 @@ import sync2play8 from '../assets/images/portofolio-5/8.webp';
 import sync2play9 from '../assets/images/portofolio-5/9.webp';
 import sync2play10 from '../assets/images/portofolio-5/10.webp';
 import sync2play11 from '../assets/images/portofolio-5/11.webp';
-
-import RepoUrl from "../models/RepoUrl";
-
+import PortfolioDetail from '../models/PortfolioDetail.js';
+import RepoUrl from "../models/RepoUrl.js";
+import Image from "../models/Image.js";
 
 const sync2PlayDetail = new PortfolioDetail(
   "sync2play",
@@ -152,17 +151,17 @@ const sync2PlayDetail = new PortfolioDetail(
     }
   ],
   [
-    sync2play1,
-    sync2play2,
-    sync2play3,
-    sync2play4,
-    sync2play5,
-    sync2play6,
-    sync2play7,
-    sync2play8,
-    sync2play9,
-    sync2play10,
-    sync2play11,
+    new Image(sync2play1, "OnBoarding Screen"),
+    new Image(sync2play2, "Host Screen"),
+    new Image(sync2play3, "Host Screen (Youtube Url Filled)"),
+    new Image(sync2play4, "Host Screen (Youtube Video Choosed)"),
+    new Image(sync2play5, "Host Screen (Downloading Youtube Audio)"),
+    new Image(sync2play6, "Audio Screen (Host)"),
+    new Image(sync2play7, "Audio Screen (Host - Playing)"),
+    new Image(sync2play8, "Listener Screen"),
+    new Image(sync2play9, "Listener Screen (Session Code Filled)"),
+    new Image(sync2play10, "Listener Screen (Downloading Audio)"),
+    new Image(sync2play11, "Audio Screen (Listener)"),
   ],
   1,
   1,
@@ -252,9 +251,11 @@ const suwtlitAppDetail = new PortfolioDetail(
     }
   ],
   [
-    suwlit1, suwlit2, suwlit3, suwlit4, suwlit5, suwlit6,
-    suwlit7, suwlit8, suwlit9, suwlit10, suwlit11, suwlit12,
-    suwlit13, suwlit14, suwlit15
+    new Image(suwlit1,"Splash Screen"), new Image(suwlit2,"SignIn Screen"), new Image(suwlit3,"SignUp Screen"), 
+    new Image(suwlit4,"Home Screen (Top Scrolled)"), new Image(suwlit5,"Home Screen (Bottom Scrolled)"), new Image(suwlit6,"Multiplayer Menu"),
+    new Image(suwlit7,"Multiplayer Game (Waiting other player)"), new Image(suwlit8,"Multiplayer Game (Start game countdown)"), 
+    new Image(suwlit9,"Multiplayer Game (Playing)"), new Image(suwlit10,"Multiplayer Game (Win)"), new Image(suwlit11,"How To Play Screen"), new Image(suwlit12,"(History Screen)"),
+    new Image(suwlit13,"History Detail (Win)"), new Image(suwlit14,"History Detail (Lose)"), new Image(suwlit15,"Top Global Screen")
   ],
   3,
   3,
@@ -384,38 +385,37 @@ const calorieGuruDetail = new PortfolioDetail(
           "RESTful API architecture for other APIs.",
         ],
       },],
-    [calorieGuruImg1,
-      calorieGuruImg2,
-      calorieGuruImg3,
-      calorieGuruImg4,
-      calorieGuruImg5,
-      calorieGuruImg6,
-      calorieGuruImg7,
-      calorieGuruImg8,
-      calorieGuruImg9,
-      calorieGuruImg10,
-      calorieGuruImg11,
-      calorieGuruImg12,
-      calorieGuruImg13,
-      calorieGuruImg14,
-      calorieGuruImg15,
-      calorieGuruImg29,
-      calorieGuruImg30,
-      calorieGuruImg16,
-      calorieGuruImg17,
-      calorieGuruImg18,
-      calorieGuruImg19,
-      calorieGuruImg20,
-      calorieGuruImg21,
-      calorieGuruImg22,
-      calorieGuruImg23,
-      calorieGuruImg24,
-      calorieGuruImg25,
-      calorieGuruImg26,
-      calorieGuruImg27,
-      calorieGuruImg28,
-    
-
+    [ 
+      new Image(calorieGuruImg1, "Splash Screen"),
+      new Image(calorieGuruImg2, "OnBoarding Screen - 1"),
+      new Image(calorieGuruImg3, "OnBoarding Screen - 2"),
+      new Image(calorieGuruImg4, "Login Screen"),
+      new Image(calorieGuruImg5, "Register Screen"),
+      new Image(calorieGuruImg6, "Register Success Screen"),
+      new Image(calorieGuruImg7, "Onboarding Form 1"),
+      new Image(calorieGuruImg8, "Onboarding Form 2"),
+      new Image(calorieGuruImg9, "Onboarding Form 3"),
+      new Image(calorieGuruImg10, "Onboarding Form Finished"),
+      new Image(calorieGuruImg11, "Home Screen"),
+      new Image(calorieGuruImg12, "History Screen"),
+      new Image(calorieGuruImg13, "Settings Screen"),
+      new Image(calorieGuruImg14, "Add Meal Screen"),
+      new Image(calorieGuruImg15, "Meal Nutrition Detail"),
+      new Image(calorieGuruImg29, "Update Meal Screen"),
+      new Image(calorieGuruImg30, "Update Exercise Screen"),
+      new Image(calorieGuruImg16, "Add Exercise Screen"),
+      new Image(calorieGuruImg17, "Exercise Calorie Details"),
+      new Image(calorieGuruImg18, "Profile Screen"),
+      new Image(calorieGuruImg19, "Edit Profile Screen"),
+      new Image(calorieGuruImg20, "Password Confirmation"),
+      new Image(calorieGuruImg21, "Delete Account Screen"),
+      new Image(calorieGuruImg22, "About App Screen"),
+      new Image(calorieGuruImg23, "Change Credential Screen"),
+      new Image(calorieGuruImg24, "Edit Password Screen"),
+      new Image(calorieGuruImg25, "Edit Email Screen"),
+      new Image(calorieGuruImg26, "FAQ Screen"),
+      new Image(calorieGuruImg27, "FAQ Screen (Detail)"),
+      new Image(calorieGuruImg28, "Feedback Screen"),
     ],
     3,
     3,
@@ -472,8 +472,8 @@ const sentimentDashboardBe = new PortfolioDetail(
     ],
   }],
   [
-    dashboardBe1,
-    dashboardBe2
+    new Image(dashboardBe1,"Login Screen"),
+    new Image(dashboardBe2,"Home Screen")
   ],
   1,
   1,
@@ -578,34 +578,34 @@ const birdGuardDetail = new PortfolioDetail(
         ]
       }
     ],
-    [
-        birdGuard1,
-        birdGuard2,
-        birdGuard3,
-        birdGuard4,
-        birdGuard5,
-        birdGuard6,
-        birdGuard7,
-        birdGuard8,
-        birdGuard9,
-        birdGuard10,
-        birdGuard11,
-        birdGuard12,
-        birdGuard13,
-        birdGuard14,
-        birdGuard15,
-        birdGuard16,
-        birdGuard17,
-        birdGuard18,
-        birdGuard19,
-        birdGuard20,
-        birdGuard21,
-      ],
-      3,
-      3,
-      null
+      [
+        new Image(birdGuard1, "Home Screen"),
+        new Image(birdGuard2, "Splash Screen"),
+        new Image(birdGuard3, "Login Screen"),
+        new Image(birdGuard4, "Register Screen (1)"),
+        new Image(birdGuard5, "Register Screen (2)"),
+        new Image(birdGuard6, "Camera Screen"),
+        new Image(birdGuard7, "Camera Screen (Media Choosen)"),
+        new Image(birdGuard8, "Prediction Result Screen"),
+        new Image(birdGuard9, "History Screen"),
+        new Image(birdGuard10, "History Detail"),
+        new Image(birdGuard11, "Profile Screen"),
+        new Image(birdGuard12, "Bird Species Screen"),
+        new Image(birdGuard13, "Bird Species Detail"),
+        new Image(birdGuard14, "About App"),
+        new Image(birdGuard15, "App Data Setting"),
+        new Image(birdGuard16, "Language Option"),
+        new Image(birdGuard17, "Setting Screen (Indonesian Language)"),
+        new Image(birdGuard18, "Home Screen (Indonesian Language)"),
+        new Image(birdGuard19, "Setting Screen"),
+        new Image(birdGuard20, "Setting Screen (Night Mode)"),
+        new Image(birdGuard21, "Home Screen (Night Mode)"),
+    ],
+    3,
+    3,
+    null
 
-    );
+);
   
 
 export const portfolioDetailData = {

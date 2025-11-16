@@ -4,11 +4,10 @@ import PortofolioSentimentDashboard from '../../assets/images/portofolio-3.webp'
 import PortofolioPersonalFlutterSite from '../../assets/images/portofolio-4.png';
 import PortofolioSuwlit from '../../assets/images/portofolio-suwlit.png';
 import PortofolioSync2Play from  '../../assets/images/portofolio-sync2play.webp'
-import { useState, useEffect, useContext } from 'react';
+import { useEffect, useContext } from 'react';
 import { DeviceContext } from '../../context/DeviceContext';
 import { useNavigate } from "react-router";
 import { ScreenContext } from "../../context/ScreenContext.";
-import { portfolioDetailData } from '../../utils/data';
 import bgImage from '../../assets/images/bg.jpg'
 function PortofolioScreen() {
   const { isMobile } = useContext(DeviceContext);
