@@ -8,12 +8,20 @@ import androidIntermediateCertificate from '../../assets/images/certificates/ser
 import flutterBeginnerCertificate from '../../assets/images/certificates/sertif-flutter-pemula.jpg';
 import flutterFundamentalCertificate from '../../assets/images/certificates/sertif-fundamental-flutter.jpg';
 import androidFundamentalCertificate from '../../assets/images/certificates/sertif-fundamental-android.jpg';
+import sqlOracleCertifiacte from '../../assets/images/certificates/sertif-dboracle.jpg'
 import bgImage from '../../assets/images/bg.jpg'
 
 import { useState,useEffect, useContext,Button } from 'react'
 import { DeviceContext } from '../../context/DeviceContext';
 
 const certificates = [
+  {
+    image: sqlOracleCertifiacte,
+    name: 'Oracle Certified Foundation Associate, Database',
+    url: 'https://catalog-education.oracle.com/pls/certview/sharebadge?id=60485DAC3E3FBB8197964283703C05ADF5A19DE0FB89B520AF487393D6170A80',
+    description:
+      'Oracle Certified Foundations Associate, Database. 2022 Exam Number 1Z0-006 by Pearson. this certification have demonstrated understanding of the different types of database models and components. Also, they are knowledgeable of database components, concepts and design, implementation of business roles, SQL language and queries, and ERD modeling and languages to manage data and transactions.'
+  },
   {
     image: JetpackComposeCertificate,
     name: 'Jetpack Compose Course',
